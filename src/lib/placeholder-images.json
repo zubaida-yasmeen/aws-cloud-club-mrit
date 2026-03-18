@@ -31,6 +31,12 @@
       "imageHint": "smiling person"
     },
     {
+      "id": "team-comm",
+      "description": "Profile of communication head",
+      "imageUrl": "https://picsum.photos/seed/team5/400/400",
+      "imageHint": "speaker person"
+    },
+    {
       "id": "event-aws-discovery",
       "description": "AWS Discovery Day",
       "imageUrl": "https://picsum.photos/seed/event1/600/400",

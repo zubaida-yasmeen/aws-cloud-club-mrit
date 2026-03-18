@@ -54,27 +54,33 @@ export async function getTeam(): Promise<TeamMember[]> {
   return [
     {
       id: '1',
-      name: 'Adarsh Gowda',
+      name: 'Zubeda Yasmeen',
       role: 'Club Captain',
       image: PlaceHolderImages.find(i => i.id === 'team-captain')?.imageUrl || '',
     },
     {
       id: '2',
-      name: 'Sahana R.',
+      name: 'Vidyasagar D J',
       role: 'Technical Lead',
       image: PlaceHolderImages.find(i => i.id === 'team-tech')?.imageUrl || '',
     },
     {
       id: '3',
-      name: 'Kiran Kumar',
+      name: 'Yasmeen Taj',
       role: 'Event Lead',
       image: PlaceHolderImages.find(i => i.id === 'team-event')?.imageUrl || '',
     },
     {
       id: '4',
-      name: 'Megha S.',
+      name: 'Sheeba Fathima',
       role: 'Community Lead',
       image: PlaceHolderImages.find(i => i.id === 'team-community')?.imageUrl || '',
+    },
+    {
+      id: '5',
+      name: 'Hafeez Riyan E H',
+      role: 'Communication Head',
+      image: PlaceHolderImages.find(i => i.id === 'team-comm')?.imageUrl || '',
     }
   ];
 }
