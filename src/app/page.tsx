@@ -28,26 +28,21 @@ export default async function Home() {
         </div>
 
         <div className="container relative z-10 px-4 text-center">
-          <div className="inline-flex items-center rounded-full bg-white/5 px-3 py-1 text-sm border border-white/10 text-primary mb-6 animate-fade-in-up">
-            <Zap className="h-4 w-4 mr-2" />
-            Empowering Future Cloud Architects
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-2 animate-fade-in-up [animation-delay:200ms]">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-2 animate-fade-in-up">
             MRIT College <br />
             <span className="text-primary">AWS Cloud Club</span>
           </h1>
           
-          <p className="text-sm md:text-base font-bold tracking-widest text-muted-foreground uppercase mb-8 animate-fade-in-up [animation-delay:300ms]">
+          <p className="text-sm md:text-base font-bold tracking-widest text-muted-foreground uppercase mb-8 animate-fade-in-up [animation-delay:200ms]">
             STUDENT-LED AWS CLOUD CLUB
           </p>
 
-          <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:400ms] leading-relaxed">
+          <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:300ms] leading-relaxed">
             Learn. Build. Deploy. <br className="hidden sm:block" />
             Connect with Mysuru Royal Institute of Technology’s cloud computing community.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up [animation-delay:600ms]">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up [animation-delay:500ms]">
             <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 h-12 px-8">
               <a href="https://chat.whatsapp.com/Lgs9RQz58ybDQCpWXOT45i" target="_blank" rel="noopener noreferrer">
                 Join Club
