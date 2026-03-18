@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Code, Users, Zap, Cloud } from "lucide-react";
+import { ArrowRight, Code, Zap, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/SectionHeader";
 import { EventCard } from "@/components/Cards";
@@ -98,24 +98,6 @@ export default async function Home() {
           {featuredEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
-        </div>
-      </section>
-
-      {/* AI Tool CTA */}
-      <section className="container px-4">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-secondary/20 to-primary/20 border border-white/10 p-10 md:p-16">
-          <div className="relative z-10 max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Confused where to start?</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Try our AI Cloud Project Generator to find a project idea tailored to your interests and chosen AWS services.
-            </p>
-            <Button asChild size="lg" className="bg-white text-background hover:bg-white/90">
-              <Link href="/ai-generator">Launch AI Generator</Link>
-            </Button>
-          </div>
-          <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 hidden md:block">
-            <Zap className="w-full h-full text-white" />
-          </div>
         </div>
       </section>
     </div>
