@@ -1,4 +1,3 @@
-
 import { PlaceHolderImages } from './placeholder-images';
 
 export interface Event {
@@ -29,21 +28,21 @@ export async function getEvents(): Promise<Event[]> {
     {
       id: '1',
       title: 'AWS Discovery Day',
-      date: 'Oct 15, 2024',
+      date: 'Date to be announced',
       description: 'An introductory session to AWS Cloud concepts and services for beginners.',
       image: PlaceHolderImages.find(i => i.id === 'event-aws-discovery')?.imageUrl || '',
     },
     {
       id: '2',
       title: 'Cloud Jam Workshop',
-      date: 'Nov 02, 2024',
+      date: 'Date to be announced',
       description: 'Hands-on coding session exploring Serverless architectures with AWS Lambda.',
       image: PlaceHolderImages.find(i => i.id === 'event-cloud-jam')?.imageUrl || '',
     },
     {
       id: '3',
       title: 'Career in Cloud Webinar',
-      date: 'Dec 10, 2024',
+      date: 'Date to be announced',
       description: 'Expert panel discussing certifications and job opportunities in the cloud ecosystem.',
       image: 'https://picsum.photos/seed/event3/600/400',
     }
