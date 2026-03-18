@@ -32,16 +32,26 @@ export default async function Home() {
             <Zap className="h-4 w-4 mr-2" />
             Empowering Future Cloud Architects
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in-up [animation-delay:200ms]">
-            AWS Cloud Club <br />
-            <span className="text-primary">MRIT</span>
+          
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-2 animate-fade-in-up [animation-delay:200ms]">
+            MRIT College <br />
+            <span className="text-primary">AWS Cloud Club</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up [animation-delay:400ms]">
-            Learn Cloud • Build Projects • Grow Together
+          
+          <p className="text-sm md:text-base font-bold tracking-widest text-muted-foreground uppercase mb-8 animate-fade-in-up [animation-delay:300ms]">
+            STUDENT-LED AWS CLOUD CLUB
           </p>
+
+          <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:400ms] leading-relaxed">
+            Learn. Build. Deploy. <br className="hidden sm:block" />
+            Connect with Mysuru Royal Institute of Technology’s cloud computing community.
+          </p>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up [animation-delay:600ms]">
             <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 h-12 px-8">
-              <Link href="/join">Join Club</Link>
+              <a href="https://chat.whatsapp.com/Lgs9RQz58ybDQCpWXOT45i" target="_blank" rel="noopener noreferrer">
+                Join Club
+              </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-12 px-8 border-white/20 hover:bg-white/5">
               <Link href="/events">Explore Events</Link>

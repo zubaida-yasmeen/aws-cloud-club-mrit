@@ -1,5 +1,6 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Cloud, CheckCircle2, Users, Trophy } from "lucide-react";
 
 export default function JoinPage() {
@@ -37,15 +38,15 @@ export default function JoinPage() {
           </div>
           <h3 className="text-2xl font-bold mb-2">Ready to Start?</h3>
           <p className="text-muted-foreground mb-8">
-            Click the button below to fill out the registration form. Membership is free for all MRIT students.
+            Join our official WhatsApp group to stay updated on all activities and connect with fellow members.
           </p>
           <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 w-full h-14 text-lg">
-            <a href="https://forms.gle/placeholder" target="_blank" rel="noopener noreferrer">
-              Join the Cloud Club
+            <a href="https://chat.whatsapp.com/Lgs9RQz58ybDQCpWXOT45i" target="_blank" rel="noopener noreferrer">
+              Join WhatsApp Group
             </a>
           </Button>
           <p className="text-xs text-muted-foreground mt-4 italic">
-            Redirects to external Google Form
+            Direct link to official community group
           </p>
         </div>
       </div>
@@ -63,5 +64,3 @@ export default function JoinPage() {
     </div>
   );
 }
-
-import { Badge } from "@/components/ui/badge";
