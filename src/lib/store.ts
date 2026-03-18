@@ -1,3 +1,4 @@
+
 import { PlaceHolderImages } from './placeholder-images';
 
 export interface Event {
@@ -23,7 +24,6 @@ export interface Project {
   image: string;
 }
 
-// In a real app, these would come from Firestore
 export async function getEvents(): Promise<Event[]> {
   return [
     {
@@ -73,12 +73,24 @@ export async function getTeam(): Promise<TeamMember[]> {
     {
       id: '4',
       name: 'Sheeba Fathima',
-      role: 'Community Lead',
-      image: PlaceHolderImages.find(i => i.id === 'team-community')?.imageUrl || '',
+      role: 'Logistics Lead',
+      image: PlaceHolderImages.find(i => i.id === 'team-logistics')?.imageUrl || '',
     },
     {
       id: '5',
       name: 'Hafeez Riyan E H',
+      role: 'Treasurer',
+      image: PlaceHolderImages.find(i => i.id === 'team-treasurer')?.imageUrl || '',
+    },
+    {
+      id: '6',
+      name: 'Umme Salma',
+      role: 'Documentation Head',
+      image: PlaceHolderImages.find(i => i.id === 'team-doc')?.imageUrl || '',
+    },
+    {
+      id: '7',
+      name: 'Preetham',
       role: 'Communication Head',
       image: PlaceHolderImages.find(i => i.id === 'team-comm')?.imageUrl || '',
     }
@@ -86,6 +98,5 @@ export async function getTeam(): Promise<TeamMember[]> {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  // Returning empty array as requested since no projects are done yet
   return [];
 }

@@ -31,16 +31,28 @@
       "imageHint": "manager person"
     },
     {
-      "id": "team-community",
-      "description": "Profile of community lead",
+      "id": "team-logistics",
+      "description": "Profile of logistics lead",
       "imageUrl": "https://picsum.photos/seed/team4/400/400",
       "imageHint": "smiling person"
     },
     {
-      "id": "team-comm",
-      "description": "Profile of communication head",
+      "id": "team-treasurer",
+      "description": "Profile of treasurer",
       "imageUrl": "https://picsum.photos/seed/team5/400/400",
       "imageHint": "speaker person"
+    },
+    {
+      "id": "team-doc",
+      "description": "Profile of documentation head",
+      "imageUrl": "https://picsum.photos/seed/team6/400/400",
+      "imageHint": "student person"
+    },
+    {
+      "id": "team-comm",
+      "description": "Profile of communication head",
+      "imageUrl": "https://picsum.photos/seed/team7/400/400",
+      "imageHint": "friendly person"
     },
     {
       "id": "event-aws-discovery",
@@ -53,12 +65,6 @@
       "description": "Cloud Jam Workshop",
       "imageUrl": "https://picsum.photos/seed/event2/600/400",
       "imageHint": "coding session"
-    },
-    {
-      "id": "project-waste",
-      "description": "Smart Waste Segregation",
-      "imageUrl": "https://picsum.photos/seed/proj1/600/400",
-      "imageHint": "smart technology"
     }
   ]
 }
