@@ -86,27 +86,6 @@ export async function getTeam(): Promise<TeamMember[]> {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  return [
-    {
-      id: '1',
-      title: 'Smart Waste Segregation',
-      description: 'AI-powered waste management system using AWS Rekognition and IoT Core.',
-      techStack: ['AWS Rekognition', 'IoT Core', 'Lambda', 'S3'],
-      image: PlaceHolderImages.find(i => i.id === 'project-waste')?.imageUrl || '',
-    },
-    {
-      id: '2',
-      title: 'Cloud Resume Challenge',
-      description: 'A serverless website showcasing resume data with a visitor counter.',
-      techStack: ['S3', 'CloudFront', 'DynamoDB', 'Lambda'],
-      image: 'https://picsum.photos/seed/proj2/600/400',
-    },
-    {
-      id: '3',
-      title: 'EduTrack Serverless',
-      description: 'Student attendance tracking system with real-time analytics dashboard.',
-      techStack: ['AppSync', 'GraphQL', 'Lambda', 'Amplify'],
-      image: 'https://picsum.photos/seed/proj3/600/400',
-    }
-  ];
+  // Returning empty array as requested since no projects are done yet
+  return [];
 }

@@ -1,70 +1,36 @@
-import { Suspense } from "react";
 import { SectionHeader } from "@/components/SectionHeader";
-import { ProjectCard } from "@/components/Cards";
-import { getProjects } from "@/lib/store";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Rocket } from "lucide-react";
-
-async function ProjectsList() {
-  const projects = await getProjects();
-  
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
-    </div>
-  );
-}
-
-function ProjectsSkeleton() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {[1, 2, 3].map((i) => (
-        <div key={i} className="glass-card h-96 rounded-xl overflow-hidden flex flex-col">
-          <Skeleton className="h-40 w-full" />
-          <div className="p-6 flex-1 space-y-4">
-            <Skeleton className="h-6 w-3/4" />
-            <Skeleton className="h-20 w-full" />
-            <div className="flex gap-2">
-              <Skeleton className="h-6 w-16" />
-              <Skeleton className="h-6 w-16" />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+import { Rocket, Clock } from "lucide-react";
 
 export default function ProjectsPage() {
   return (
-    <div className="container px-4 py-20">
+    <div className="container px-4 py-20 min-h-[60vh] flex flex-col items-center justify-center text-center">
       <SectionHeader 
         title="Student Projects" 
-        subtitle="Innovation happens here. Explore the diverse range of cloud projects built by our community members."
+        subtitle="Innovation happens here. Our members are currently working on exciting cloud-native solutions."
+        centered
       />
       
-      <Suspense fallback={<ProjectsSkeleton />}>
-        <ProjectsList />
-      </Suspense>
-
-      <div className="mt-20 glass-card p-10 rounded-3xl border-primary/20 text-center relative overflow-hidden">
+      <div className="glass-card p-12 rounded-3xl border-primary/20 max-w-2xl w-full relative overflow-hidden bg-white/5">
         <div className="absolute top-0 right-0 p-4 opacity-5">
           <Rocket className="h-32 w-32" />
         </div>
-        <h3 className="text-2xl font-bold mb-4">Want to showcase your project?</h3>
-        <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-          We're looking for projects that utilize AWS in unique ways. Submit your project details to get featured on this page.
+        <Clock className="h-16 w-16 text-primary mx-auto mb-6 opacity-50" />
+        <h3 className="text-2xl font-bold mb-4">Coming Soon!</h3>
+        <p className="text-muted-foreground mb-8 text-lg">
+          We're just getting started! Our community is brainstorming and building. Check back soon to see the amazing AWS-powered projects our students create.
         </p>
-        <a 
-          href="https://forms.gle/placeholder" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-white shadow transition-colors hover:bg-primary/90"
-        >
-          Submit Project
-        </a>
+        <div className="flex gap-4 justify-center">
+          <div className="h-1.5 w-12 bg-primary/30 rounded-full" />
+          <div className="h-1.5 w-12 bg-primary/30 rounded-full" />
+          <div className="h-1.5 w-12 bg-primary/30 rounded-full" />
+        </div>
+      </div>
+
+      <div className="mt-16 text-center">
+        <p className="text-muted-foreground italic">
+          Are you a member with a project idea? <br />
+          Contact the Technical Lead to get your project featured here in the future.
+        </p>
       </div>
     </div>
   );

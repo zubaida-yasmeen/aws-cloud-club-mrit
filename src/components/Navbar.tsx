@@ -12,7 +12,6 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Events", href: "/events" },
   { name: "Team", href: "/team" },
-  { name: "Projects", href: "/projects" },
   { name: "AI Tool", href: "/ai-generator" },
 ];
 
