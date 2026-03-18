@@ -42,7 +42,7 @@ export function Footer() {
                 <Mail className="h-4 w-4" />
                 <span>awsclub@mrit.ac.in</span>
               </li>
-              <li className="text-sm">Mysuru Royal Institute of Technology, Mysuru, Karnataka</li>
+              <li className="text-sm">Mysuru Royal Institute of Technology, Mandya, Karnataka</li>
             </ul>
           </div>
         </div>
