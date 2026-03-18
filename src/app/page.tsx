@@ -50,23 +50,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="container px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-10 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm">
-          {[
-            { label: "Members", value: "250+", icon: Users },
-            { label: "Workshops", value: "15+", icon: Code },
-            { label: "Projects", value: "10+", icon: Zap },
-          ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
-              <div className="text-3xl font-bold mb-1">{stat.value}</div>
-              <div className="text-sm text-muted-foreground uppercase tracking-widest">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* What We Do Section */}
       <section className="container px-4">
         <SectionHeader 
