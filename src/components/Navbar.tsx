@@ -2,10 +2,12 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Cloud } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -17,6 +19,7 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const pathname = usePathname();
+  const logoUrl = PlaceHolderImages.find(i => i.id === 'club-logo')?.imageUrl || '';
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-md">
@@ -24,7 +27,14 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <Cloud className="h-8 w-8 text-primary" />
+              <div className="relative h-10 w-10">
+                <Image
+                  src={logoUrl}
+                  alt="AWS Cloud Club Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <span className="text-xl font-bold tracking-tight text-white hidden sm:inline-block">
                 AWS <span className="text-primary">Cloud Club</span>
               </span>

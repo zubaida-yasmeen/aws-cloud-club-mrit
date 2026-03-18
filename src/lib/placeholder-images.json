@@ -7,6 +7,12 @@
       "imageHint": "cloud computing"
     },
     {
+      "id": "club-logo",
+      "description": "AWS Cloud Club MRIT Official Logo",
+      "imageUrl": "https://picsum.photos/seed/aws-mrit-logo/200/200",
+      "imageHint": "cloud logo purple"
+    },
+    {
       "id": "team-captain",
       "description": "Profile of club captain",
       "imageUrl": "https://picsum.photos/seed/team1/400/400",

@@ -1,14 +1,25 @@
 import Link from "next/link";
-import { Github, Twitter, Linkedin, Mail, Cloud } from "lucide-react";
+import Image from "next/image";
+import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function Footer() {
+  const logoUrl = PlaceHolderImages.find(i => i.id === 'club-logo')?.imageUrl || '';
+
   return (
     <footer className="border-t border-white/10 bg-background pt-12 pb-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Cloud className="h-6 w-6 text-primary" />
+              <div className="relative h-8 w-8">
+                <Image
+                  src={logoUrl}
+                  alt="AWS Cloud Club Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <span className="text-lg font-bold">AWS Cloud Club – MRIT</span>
             </Link>
             <p className="text-muted-foreground max-w-sm mb-6">
