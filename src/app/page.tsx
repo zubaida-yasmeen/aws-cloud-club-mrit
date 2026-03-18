@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Code, Users, Zap, Award, Cloud } from "lucide-react";
+import { ArrowRight, Code, Users, Zap, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/SectionHeader";
 import { EventCard } from "@/components/Cards";
@@ -52,12 +52,11 @@ export default async function Home() {
 
       {/* Stats Section */}
       <section className="container px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-10 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm">
           {[
             { label: "Members", value: "250+", icon: Users },
             { label: "Workshops", value: "15+", icon: Code },
             { label: "Projects", value: "10+", icon: Zap },
-            { label: "Certifications", value: "30+", icon: Award },
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
