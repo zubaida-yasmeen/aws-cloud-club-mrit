@@ -1,7 +1,7 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Cloud, CheckCircle2, Users, Trophy } from "lucide-react";
+import { Cloud, CheckCircle2, Users, Trophy, ExternalLink } from "lucide-react";
 
 export default function JoinPage() {
   return (
@@ -38,15 +38,23 @@ export default function JoinPage() {
           </div>
           <h3 className="text-2xl font-bold mb-2">Ready to Start?</h3>
           <p className="text-muted-foreground mb-8">
-            Join our official WhatsApp group to stay updated on all activities and connect with fellow members.
+            Connect with our community platforms to stay updated on all activities and events.
           </p>
-          <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 w-full h-14 text-lg">
-            <a href="https://chat.whatsapp.com/Lgs9RQz58ybDQCpWXOT45i" target="_blank" rel="noopener noreferrer">
-              Join WhatsApp Group
-            </a>
-          </Button>
+          <div className="flex flex-col gap-4 w-full">
+            <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 w-full h-14 text-lg">
+              <a href="https://chat.whatsapp.com/Lgs9RQz58ybDQCpWXOT45i" target="_blank" rel="noopener noreferrer">
+                Join WhatsApp Group
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="border-white/20 hover:bg-white/5 w-full h-14 text-lg">
+              <a href="https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                Join on Meetup
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </Button>
+          </div>
           <p className="text-xs text-muted-foreground mt-4 italic">
-            Direct link to official community group
+            Direct links to official community platforms
           </p>
         </div>
       </div>
