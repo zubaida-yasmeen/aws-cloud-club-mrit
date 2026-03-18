@@ -46,8 +46,8 @@ export default function TeamPage() {
         <SectionHeader title="Faculty Advisors" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
-            { name: "Dr. Ramesh Babu", role: "Head of Department, CSE", image: "https://picsum.photos/seed/faculty1/400/400" },
-            { name: "Prof. Suma V.", role: "Club Coordinator", image: "https://picsum.photos/seed/faculty2/400/400" }
+            { name: "Mr. Irfan Khalid", role: "AWS Educator", image: "https://picsum.photos/seed/faculty-irfan/400/400" },
+            { name: "Gowtham A R", role: "Club Coordinator", image: "https://picsum.photos/seed/faculty-gowtham/400/400" }
           ].map((advisor, i) => (
             <div key={i} className="glass-card p-6 rounded-2xl flex items-center gap-6">
               <div className="relative h-20 w-20 shrink-0 rounded-xl overflow-hidden">
