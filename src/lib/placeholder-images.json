@@ -14,45 +14,45 @@
     },
     {
       "id": "team-captain",
-      "description": "Profile of club captain",
-      "imageUrl": "https://picsum.photos/seed/team1/400/400",
-      "imageHint": "professional person"
+      "description": "Profile of club captain (female)",
+      "imageUrl": "https://picsum.photos/seed/female-captain/400/400",
+      "imageHint": "professional woman"
     },
     {
       "id": "team-tech",
-      "description": "Profile of tech lead",
-      "imageUrl": "https://picsum.photos/seed/team2/400/400",
+      "description": "Profile of tech lead (male)",
+      "imageUrl": "https://picsum.photos/seed/male-tech/400/400",
       "imageHint": "tech expert"
     },
     {
       "id": "team-event",
-      "description": "Profile of event lead",
-      "imageUrl": "https://picsum.photos/seed/team3/400/400",
-      "imageHint": "manager person"
+      "description": "Profile of event lead (female)",
+      "imageUrl": "https://picsum.photos/seed/female-event/400/400",
+      "imageHint": "manager woman"
     },
     {
       "id": "team-logistics",
-      "description": "Profile of logistics lead",
-      "imageUrl": "https://picsum.photos/seed/team4/400/400",
-      "imageHint": "smiling person"
+      "description": "Profile of logistics lead (female)",
+      "imageUrl": "https://picsum.photos/seed/female-logistics/400/400",
+      "imageHint": "smiling woman"
     },
     {
       "id": "team-treasurer",
-      "description": "Profile of treasurer",
-      "imageUrl": "https://picsum.photos/seed/team5/400/400",
-      "imageHint": "speaker person"
+      "description": "Profile of treasurer (male)",
+      "imageUrl": "https://picsum.photos/seed/male-treasurer/400/400",
+      "imageHint": "speaker man"
     },
     {
       "id": "team-doc",
-      "description": "Profile of documentation head",
-      "imageUrl": "https://picsum.photos/seed/team6/400/400",
-      "imageHint": "student person"
+      "description": "Profile of documentation head (female)",
+      "imageUrl": "https://picsum.photos/seed/female-doc/400/400",
+      "imageHint": "student woman"
     },
     {
       "id": "team-comm",
-      "description": "Profile of communication head",
-      "imageUrl": "https://picsum.photos/seed/team7/400/400",
-      "imageHint": "friendly person"
+      "description": "Profile of communication head (male)",
+      "imageUrl": "https://picsum.photos/seed/male-comm/400/400",
+      "imageHint": "friendly man"
     },
     {
       "id": "event-aws-discovery",
