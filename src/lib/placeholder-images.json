@@ -2,15 +2,15 @@
   "placeholderImages": [
     {
       "id": "hero-bg",
-      "description": "Abstract cloud computing background",
-      "imageUrl": "https://picsum.photos/seed/aws1/1200/800",
-      "imageHint": "cloud computing"
+      "description": "Abstract dark cloud computing background with neon purple gradients",
+      "imageUrl": "https://picsum.photos/seed/aws-purple-bg/1200/800",
+      "imageHint": "purple cloud computing"
     },
     {
       "id": "club-logo",
-      "description": "AWS Cloud Club MRIT Official Logo",
-      "imageUrl": "https://picsum.photos/seed/aws-mrit-logo/200/200",
-      "imageHint": "cloud logo purple"
+      "description": "AWS Cloud Club MRIT Official Logo - Purple cloud with stars and AWS smile",
+      "imageUrl": "https://picsum.photos/seed/mrit-purple-logo/400/400",
+      "imageHint": "purple cloud logo"
     },
     {
       "id": "team-captain",

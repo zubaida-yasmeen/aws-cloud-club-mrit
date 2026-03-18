@@ -1,28 +1,29 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 202 21% 12%;
+    --background: 240 20% 10%;
     --foreground: 210 20% 98%;
-    --card: 202 21% 15%;
+    --card: 240 20% 15%;
     --card-foreground: 210 20% 98%;
-    --popover: 202 21% 12%;
+    --popover: 240 20% 12%;
     --popover-foreground: 210 20% 98%;
-    --primary: 28 85% 52%;
+    --primary: 270 70% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 200 60% 50%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 202 21% 20%;
+    --muted: 240 20% 20%;
     --muted-foreground: 215 20% 65%;
-    --accent: 200 60% 50%;
+    --accent: 270 70% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
-    --border: 202 21% 25%;
-    --input: 202 21% 25%;
-    --ring: 28 85% 52%;
+    --border: 240 20% 25%;
+    --input: 240 20% 25%;
+    --ring: 270 70% 60%;
     --radius: 0.75rem;
   }
 }
@@ -44,10 +45,25 @@
   box-shadow: 0 0 20px rgba(51, 153, 204, 0.3);
 }
 
-.neon-glow-orange {
-  box-shadow: 0 0 20px rgba(235, 126, 28, 0.3);
+.neon-glow-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
 }
 
 .section-transition {
   @apply transition-all duration-700 ease-in-out;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
 }
