@@ -14,33 +14,33 @@
     },
     {
       "id": "team-captain",
-      "description": "Profile of club captain (female)",
+      "description": "Profile of club captain Zubeda Yasmeen",
       "imageUrl": "https://picsum.photos/seed/female-captain/400/400",
       "imageHint": "professional woman"
     },
     {
       "id": "team-tech",
-      "description": "Profile of tech lead (male)",
+      "description": "Profile of tech lead Vidyasagar D J",
       "imageUrl": "https://picsum.photos/seed/male-tech/400/400",
       "imageHint": "tech expert"
     },
     {
       "id": "team-event",
-      "description": "Profile of event lead (female)",
+      "description": "Profile of event lead Yasmeen Taj",
       "imageUrl": "https://picsum.photos/seed/female-event/400/400",
       "imageHint": "manager woman"
     },
     {
       "id": "team-logistics",
-      "description": "Profile of logistics lead (female)",
+      "description": "Profile of logistics lead Sheeba Fathima",
       "imageUrl": "https://picsum.photos/seed/female-logistics/400/400",
       "imageHint": "smiling woman"
     },
     {
       "id": "team-doc",
-      "description": "Profile of documentation head (female)",
-      "imageUrl": "https://picsum.photos/seed/female-doc/400/400",
-      "imageHint": "student woman"
+      "description": "Profile of documentation head Umme Salma (dark hair, floral background)",
+      "imageUrl": "https://picsum.photos/seed/umme-salma/400/400",
+      "imageHint": "woman flowers"
     },
     {
       "id": "member-gen-1",
