@@ -24,11 +24,8 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-xl font-bold tracking-tight text-white hidden sm:inline-block">
-                AWS <span className="text-primary">Cloud Club</span>
-              </span>
-              <span className="text-xl font-bold tracking-tight text-white sm:hidden">
-                MRIT
+              <span className="text-xl font-bold tracking-tight text-white">
+                AWS <span className="text-primary">Cloud Club</span> <span className="text-muted-foreground ml-1">MRIT</span>
               </span>
             </Link>
           </div>
