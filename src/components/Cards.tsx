@@ -44,23 +44,25 @@ export function TeamCard({ member }: { member: TeamMember }) {
             className="rounded-full object-cover"
           />
         </div>
+      </div>
+      <CardHeader className="space-y-3">
+        <div>
+          <CardTitle className="text-lg">{member.name}</CardTitle>
+        </div>
+        <Badge variant="secondary" className="mx-auto w-fit bg-secondary/10 text-secondary border-secondary/20">
+          {member.role}
+        </Badge>
         {member.linkedin && (
           <a 
             href={member.linkedin} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="absolute bottom-4 right-[calc(50%-4.5rem)] bg-primary text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110"
-            title={`Connect with ${member.name} on LinkedIn`}
+            className="text-xs text-primary hover:underline flex items-center justify-center gap-1.5 font-medium transition-colors"
           >
-            <Linkedin className="h-4 w-4" />
+            <Linkedin className="h-3 w-3" />
+            LinkedIn Profile
           </a>
         )}
-      </div>
-      <CardHeader>
-        <CardTitle className="text-lg">{member.name}</CardTitle>
-        <Badge variant="secondary" className="mx-auto w-fit bg-secondary/10 text-secondary border-secondary/20">
-          {member.role}
-        </Badge>
       </CardHeader>
     </Card>
   );
