@@ -27,24 +27,24 @@ export async function getEvents(): Promise<Event[]> {
   return [
     {
       id: '1',
+      title: 'Official Club Inauguration',
+      date: 'Date to be announced',
+      description: 'The grand unveiling of the AWS Cloud Club at MRIT. Join us for an inspiring launch event with faculty and student leaders.',
+      image: PlaceHolderImages.find(i => i.id === 'event-inauguration')?.imageUrl || '',
+    },
+    {
+      id: '2',
       title: 'AWS Discovery Day',
       date: 'Date to be announced',
       description: 'An introductory session to AWS Cloud concepts and services for beginners.',
       image: PlaceHolderImages.find(i => i.id === 'event-aws-discovery')?.imageUrl || '',
     },
     {
-      id: '2',
+      id: '3',
       title: 'Cloud Jam Workshop',
       date: 'Date to be announced',
       description: 'Hands-on coding session exploring Serverless architectures with AWS Lambda.',
       image: PlaceHolderImages.find(i => i.id === 'event-cloud-jam')?.imageUrl || '',
-    },
-    {
-      id: '3',
-      title: 'Career in Cloud Webinar',
-      date: 'Date to be announced',
-      description: 'Expert panel discussing certifications and job opportunities in the cloud ecosystem.',
-      image: 'https://picsum.photos/seed/event3/600/400',
     }
   ];
 }

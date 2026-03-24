@@ -55,6 +55,12 @@
       "imageHint": "friendly man"
     },
     {
+      "id": "event-inauguration",
+      "description": "Official Club Inauguration Ceremony",
+      "imageUrl": "https://picsum.photos/seed/inauguration/600/400",
+      "imageHint": "grand opening"
+    },
+    {
       "id": "event-aws-discovery",
       "description": "AWS Discovery Day",
       "imageUrl": "https://picsum.photos/seed/event1/600/400",
