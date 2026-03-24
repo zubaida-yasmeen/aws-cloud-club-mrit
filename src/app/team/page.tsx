@@ -43,11 +43,11 @@ export default function TeamPage() {
       </Suspense>
 
       <div className="mt-24">
-        <SectionHeader title="Faculty Advisors" />
+        <SectionHeader title="Faculty Coordinators" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
-            { name: "Mr. Irfan Khalid", role: "AWS Educator", image: "https://picsum.photos/seed/faculty-irfan/400/400" },
-            { name: "Gowtham A R", role: "Club Coordinator", image: "https://picsum.photos/seed/faculty-gowtham/400/400" }
+            { name: "Mr. Gowtham A R", role: "Faculty Coordinator", image: "https://picsum.photos/seed/faculty-gowtham/400/400" },
+            { name: "Ms. Harshitha M", role: "Faculty Coordinator", image: "https://picsum.photos/seed/faculty-harshitha/400/400" }
           ].map((advisor, i) => (
             <div key={i} className="glass-card p-6 rounded-2xl flex items-center gap-6">
               <div className="relative h-20 w-20 shrink-0 rounded-xl overflow-hidden">
