@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Cloud, CheckCircle2, Users, Trophy, ExternalLink } from "lucide-react";
 
 export default function JoinPage() {
+  const meetupLink = "https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/";
+
   return (
     <div className="container px-4 py-20 flex flex-col items-center">
       <SectionHeader 
@@ -47,7 +49,7 @@ export default function JoinPage() {
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white/20 hover:bg-white/5 w-full h-14 text-lg">
-              <a href="https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+              <a href={meetupLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                 Join on Meetup
                 <ExternalLink className="h-4 w-4" />
               </a>
@@ -63,9 +65,16 @@ export default function JoinPage() {
         <h4 className="text-xl font-bold mb-4">Follow our journey</h4>
         <div className="flex gap-4 justify-center">
           {["Instagram", "LinkedIn", "Meetup"].map((platform) => (
-            <Badge key={platform} className="px-6 py-2 bg-white/5 hover:bg-primary/10 transition-colors cursor-pointer border-white/10">
-              {platform}
-            </Badge>
+            <a 
+              key={platform} 
+              href={platform === "Meetup" ? meetupLink : "#"} 
+              target={platform === "Meetup" ? "_blank" : undefined}
+              rel={platform === "Meetup" ? "noopener noreferrer" : undefined}
+            >
+              <Badge className="px-6 py-2 bg-white/5 hover:bg-primary/10 transition-colors cursor-pointer border-white/10">
+                {platform}
+              </Badge>
+            </a>
           ))}
         </div>
       </div>

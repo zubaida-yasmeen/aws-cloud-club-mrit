@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, Users } from "lucide-react";
 
 export function Footer() {
   return (
@@ -14,9 +14,18 @@ export function Footer() {
               Empowering students at Mysuru Royal Institute of Technology to build the next generation of cloud solutions.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-5 w-5" />
-              </Link>
+              </a>
+              <a 
+                href="https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-muted-foreground hover:text-primary transition-colors"
+                title="Join our Meetup community"
+              >
+                <Users className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
