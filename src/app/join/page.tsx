@@ -62,7 +62,7 @@ export default function JoinPage() {
       <div className="mt-24 text-center">
         <h4 className="text-xl font-bold mb-4">Follow our journey</h4>
         <div className="flex gap-4 justify-center">
-          {["Instagram", "LinkedIn", "Discord"].map((platform) => (
+          {["Instagram", "LinkedIn", "Meetup"].map((platform) => (
             <Badge key={platform} className="px-6 py-2 bg-white/5 hover:bg-primary/10 transition-colors cursor-pointer border-white/10">
               {platform}
             </Badge>
