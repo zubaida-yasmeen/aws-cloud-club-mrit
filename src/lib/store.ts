@@ -13,6 +13,7 @@ export interface TeamMember {
   name: string;
   role: string;
   image: string;
+  linkedin?: string;
 }
 
 export interface Project {
@@ -56,6 +57,7 @@ export async function getTeam(): Promise<TeamMember[]> {
       name: 'Zubeda Yasmeen',
       role: 'Club Captain',
       image: PlaceHolderImages.find(i => i.id === 'team-captain')?.imageUrl || '',
+      linkedin: 'https://www.linkedin.com/in/zubeda-yasmeen/',
     },
     {
       id: '2',

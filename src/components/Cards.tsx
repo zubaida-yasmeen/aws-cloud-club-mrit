@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Calendar, Tag } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Calendar, Tag, Linkedin } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Event, TeamMember, Project } from "@/lib/store";
 
@@ -34,8 +34,8 @@ export function EventCard({ event }: { event: Event }) {
 
 export function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <Card className="glass-card text-center overflow-hidden transition-all hover:border-primary/50 duration-300">
-      <div className="pt-8 pb-4 flex justify-center">
+    <Card className="glass-card text-center overflow-hidden transition-all hover:border-primary/50 duration-300 group">
+      <div className="pt-8 pb-4 flex justify-center relative">
         <div className="relative h-32 w-32 rounded-full overflow-hidden border-2 border-primary/20 p-1">
           <Image
             src={member.image}
@@ -44,6 +44,17 @@ export function TeamCard({ member }: { member: TeamMember }) {
             className="rounded-full object-cover"
           />
         </div>
+        {member.linkedin && (
+          <a 
+            href={member.linkedin} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-[calc(50%-4.5rem)] bg-primary text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110"
+            title={`Connect with ${member.name} on LinkedIn`}
+          >
+            <Linkedin className="h-4 w-4" />
+          </a>
+        )}
       </div>
       <CardHeader>
         <CardTitle className="text-lg">{member.name}</CardTitle>
