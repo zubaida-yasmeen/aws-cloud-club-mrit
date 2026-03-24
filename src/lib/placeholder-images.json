@@ -37,22 +37,46 @@
       "imageHint": "smiling woman"
     },
     {
-      "id": "team-treasurer",
-      "description": "Profile of treasurer (male)",
-      "imageUrl": "https://picsum.photos/seed/male-treasurer/400/400",
-      "imageHint": "speaker man"
-    },
-    {
       "id": "team-doc",
       "description": "Profile of documentation head (female)",
       "imageUrl": "https://picsum.photos/seed/female-doc/400/400",
       "imageHint": "student woman"
     },
     {
-      "id": "team-comm",
-      "description": "Profile of communication head (male)",
-      "imageUrl": "https://picsum.photos/seed/male-comm/400/400",
-      "imageHint": "friendly man"
+      "id": "member-gen-1",
+      "description": "Generic member profile 1",
+      "imageUrl": "https://picsum.photos/seed/m1/400/400",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "member-gen-2",
+      "description": "Generic member profile 2",
+      "imageUrl": "https://picsum.photos/seed/m2/400/400",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "member-gen-3",
+      "description": "Generic member profile 3",
+      "imageUrl": "https://picsum.photos/seed/m3/400/400",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "member-gen-4",
+      "description": "Generic member profile 4",
+      "imageUrl": "https://picsum.photos/seed/m4/400/400",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "member-gen-5",
+      "description": "Generic member profile 5",
+      "imageUrl": "https://picsum.photos/seed/m5/400/400",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "member-gen-6",
+      "description": "Generic member profile 6",
+      "imageUrl": "https://picsum.photos/seed/m6/400/400",
+      "imageHint": "student profile"
     },
     {
       "id": "event-inauguration",

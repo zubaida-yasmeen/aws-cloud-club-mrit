@@ -1,3 +1,4 @@
+
 import { PlaceHolderImages } from './placeholder-images';
 
 export interface Event {
@@ -64,36 +65,64 @@ export async function getTeam(): Promise<TeamMember[]> {
       name: 'Vidyasagar D J',
       role: 'Technical Lead',
       image: PlaceHolderImages.find(i => i.id === 'team-tech')?.imageUrl || '',
+      linkedin: 'https://www.linkedin.com/in/d-j-vidyasagar-038b14307/',
     },
     {
       id: '3',
       name: 'Yasmeen Taj',
       role: 'Event Lead',
       image: PlaceHolderImages.find(i => i.id === 'team-event')?.imageUrl || '',
+      linkedin: 'https://www.linkedin.com/in/yasmeen-taj0114/',
     },
     {
       id: '4',
       name: 'Sheeba Fathima',
       role: 'Logistics Lead',
       image: PlaceHolderImages.find(i => i.id === 'team-logistics')?.imageUrl || '',
+      linkedin: 'https://www.linkedin.com/in/sheeba-fathima-98bb722b9/',
     },
     {
       id: '5',
-      name: 'Hafeez Riyan E H',
-      role: 'Treasurer',
-      image: PlaceHolderImages.find(i => i.id === 'team-treasurer')?.imageUrl || '',
-    },
-    {
-      id: '6',
       name: 'Umme Salma',
       role: 'Documentation Head',
       image: PlaceHolderImages.find(i => i.id === 'team-doc')?.imageUrl || '',
+      linkedin: 'https://www.linkedin.com/in/umme-salma-6b7091325/',
     },
     {
-      id: '7',
-      name: 'Preetham',
-      role: 'Communication Head',
-      image: PlaceHolderImages.find(i => i.id === 'team-comm')?.imageUrl || '',
+      id: 'm1',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-1')?.imageUrl || '',
+    },
+    {
+      id: 'm2',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-2')?.imageUrl || '',
+    },
+    {
+      id: 'm3',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-3')?.imageUrl || '',
+    },
+    {
+      id: 'm4',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-4')?.imageUrl || '',
+    },
+    {
+      id: 'm5',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-5')?.imageUrl || '',
+    },
+    {
+      id: 'm6',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-6')?.imageUrl || '',
     }
   ];
 }
