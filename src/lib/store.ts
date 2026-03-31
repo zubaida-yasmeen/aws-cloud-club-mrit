@@ -61,25 +61,11 @@ export async function getTeam(): Promise<TeamMember[]> {
       linkedin: 'https://www.linkedin.com/in/zubeda-yasmeen/',
     },
     {
-      id: '2',
-      name: 'Vidyasagar D J',
-      role: 'Technical Lead',
-      image: PlaceHolderImages.find(i => i.id === 'team-tech')?.imageUrl || '',
-      linkedin: 'https://www.linkedin.com/in/d-j-vidyasagar-038b14307/',
-    },
-    {
       id: '3',
       name: 'Yasmeen Taj',
-      role: 'Event Lead',
+      role: 'Director of Events',
       image: PlaceHolderImages.find(i => i.id === 'team-event')?.imageUrl || '',
       linkedin: 'https://www.linkedin.com/in/yasmeen-taj0114/',
-    },
-    {
-      id: '4',
-      name: 'Sheeba Fathima',
-      role: 'Logistics Lead',
-      image: PlaceHolderImages.find(i => i.id === 'team-logistics')?.imageUrl || '',
-      linkedin: 'https://www.linkedin.com/in/sheeba-fathima-98bb722b9/',
     },
     {
       id: '5',
