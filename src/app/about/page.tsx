@@ -4,28 +4,37 @@ import { Cloud, Target, Eye, Star, CheckCircle2 } from "lucide-react";
 export default function AboutPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col gap-24">
-      <section>
-        <SectionHeader title="About AWS Cloud Club" subtitle="AWS Cloud Clubs are student-led organizations that provide a community for students to learn about cloud computing and develop their skills on AWS." />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
-            <p>
-              The AWS Cloud Club at Mysuru Royal Institute of Technology (MRIT) is a vibrant community of students passionate about technology, innovation, and the future of cloud computing.
-            </p>
-            <p>
-              As an official AWS student community, we have direct access to resources, mentorship, and opportunities provided by Amazon Web Services. Our goal is to make MRIT a hub for cloud excellence.
-            </p>
+      <section className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <SectionHeader 
+          title="About AWS Cloud Club" 
+          subtitle="AWS Cloud Clubs are student-led organizations that provide a community for students to learn about cloud computing and develop their skills on AWS." 
+          centered
+        />
+        
+        <div className="mt-8 space-y-8 text-muted-foreground text-lg md:text-xl leading-relaxed text-left md:text-center">
+          <p>
+            The AWS Cloud Club at Mysuru Royal Institute of Technology (MRIT) is a vibrant community of students passionate about technology, innovation, and the future of cloud computing.
+          </p>
+          <p>
+            As an official AWS student community, we have direct access to resources, mentorship, and opportunities provided by Amazon Web Services. Our goal is to make MRIT a hub for cloud excellence by bridging the gap between theoretical knowledge and practical application.
+          </p>
+        </div>
+
+        <div className="mt-16 flex flex-col gap-8 w-full max-w-2xl mx-auto">
+          <div className="glass-card p-10 rounded-3xl flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 border border-white/10 group">
+            <div className="bg-primary/10 p-4 rounded-2xl mb-6 group-hover:bg-primary/20 transition-colors">
+              <Target className="h-12 w-12 text-primary" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+            <p className="text-muted-foreground">To bridge the gap between cloud theory and industry practice through hands-on learning and professional mentorship.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
-              <Target className="h-10 w-10 text-primary mb-4" />
-              <h3 className="font-bold mb-2">Our Mission</h3>
-              <p className="text-sm">To bridge the gap between cloud theory and industry practice.</p>
+
+          <div className="glass-card p-10 rounded-3xl flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-secondary/10 border border-white/10 group">
+            <div className="bg-secondary/10 p-4 rounded-2xl mb-6 group-hover:bg-secondary/20 transition-colors">
+              <Eye className="h-12 w-12 text-secondary" />
             </div>
-            <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
-              <Eye className="h-10 w-10 text-secondary mb-4" />
-              <h3 className="font-bold mb-2">Our Vision</h3>
-              <p className="text-sm">Becoming the premier student cloud community in Karnataka.</p>
-            </div>
+            <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+            <p className="text-muted-foreground">Becoming the premier student cloud community in Karnataka, fostering a culture of innovation and technological excellence at MRIT.</p>
           </div>
         </div>
       </section>
@@ -39,7 +48,7 @@ export default function AboutPage() {
             { title: "Global Network", desc: "Connect with AWS Cloud Club members and mentors worldwide.", icon: Target },
             { title: "Project Portfolios", desc: "Build industry-ready projects to showcase on your resume.", icon: Eye }
           ].map((benefit, i) => (
-            <div key={i} className="glass-card p-8 rounded-2xl flex flex-col items-center text-center hover:neon-glow-orange transition-all">
+            <div key={i} className="glass-card p-8 rounded-2xl flex flex-col items-center text-center hover:scale-105 transition-all duration-300 border border-white/5">
               <benefit.icon className="h-12 w-12 text-primary mb-6" />
               <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
               <p className="text-sm text-muted-foreground">{benefit.desc}</p>
