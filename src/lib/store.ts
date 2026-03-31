@@ -61,6 +61,13 @@ export async function getTeam(): Promise<TeamMember[]> {
       linkedin: 'https://www.linkedin.com/in/zubeda-yasmeen/',
     },
     {
+      id: '5',
+      name: 'Umme Salma',
+      role: 'Vice Captain',
+      image: PlaceHolderImages.find(i => i.id === 'team-doc')?.imageUrl || '',
+      linkedin: 'https://www.linkedin.com/in/umme-salma-6b7091325/',
+    },
+    {
       id: '3',
       name: 'Yasmeen Taj',
       role: 'Director of Events',
@@ -68,28 +75,21 @@ export async function getTeam(): Promise<TeamMember[]> {
       linkedin: 'https://www.linkedin.com/in/yasmeen-taj0114/',
     },
     {
-      id: '5',
-      name: 'Umme Salma',
-      role: 'Documentation Head',
-      image: PlaceHolderImages.find(i => i.id === 'team-doc')?.imageUrl || '',
-      linkedin: 'https://www.linkedin.com/in/umme-salma-6b7091325/',
-    },
-    {
       id: 'm1',
       name: 'Member Name',
-      role: 'Member',
+      role: 'Director of Membership & Engagement',
       image: PlaceHolderImages.find(i => i.id === 'member-gen-1')?.imageUrl || '',
     },
     {
       id: 'm2',
       name: 'Member Name',
-      role: 'Member',
+      role: 'Director of Data & Operations',
       image: PlaceHolderImages.find(i => i.id === 'member-gen-2')?.imageUrl || '',
     },
     {
       id: 'm3',
       name: 'Member Name',
-      role: 'Member',
+      role: 'Director of Technology',
       image: PlaceHolderImages.find(i => i.id === 'member-gen-3')?.imageUrl || '',
     },
     {
