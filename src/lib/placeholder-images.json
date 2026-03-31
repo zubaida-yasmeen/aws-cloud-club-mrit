@@ -79,6 +79,24 @@
       "imageHint": "student profile"
     },
     {
+      "id": "member-gen-7",
+      "description": "Generic member profile 7",
+      "imageUrl": "https://picsum.photos/seed/m7/400/400",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "member-gen-8",
+      "description": "Generic member profile 8",
+      "imageUrl": "https://picsum.photos/seed/m8/400/400",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "member-gen-9",
+      "description": "Generic member profile 9",
+      "imageUrl": "https://picsum.photos/seed/m9/400/400",
+      "imageHint": "student profile"
+    },
+    {
       "id": "event-inauguration",
       "description": "Official Club Inauguration Ceremony",
       "imageUrl": "https://picsum.photos/seed/inauguration/600/400",

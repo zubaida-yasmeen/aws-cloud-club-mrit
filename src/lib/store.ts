@@ -1,4 +1,3 @@
-
 import { PlaceHolderImages } from './placeholder-images';
 
 export interface Event {
@@ -109,6 +108,24 @@ export async function getTeam(): Promise<TeamMember[]> {
       name: 'Member Name',
       role: 'Member',
       image: PlaceHolderImages.find(i => i.id === 'member-gen-6')?.imageUrl || '',
+    },
+    {
+      id: 'm7',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-7')?.imageUrl || '',
+    },
+    {
+      id: 'm8',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-8')?.imageUrl || '',
+    },
+    {
+      id: 'm9',
+      name: 'Member Name',
+      role: 'Member',
+      image: PlaceHolderImages.find(i => i.id === 'member-gen-9')?.imageUrl || '',
     }
   ];
 }
