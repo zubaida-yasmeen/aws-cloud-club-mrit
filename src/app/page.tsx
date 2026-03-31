@@ -27,7 +27,7 @@ export default async function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/80 to-background" />
         </div>
 
-        <div className="container relative z-10 px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center w-full">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-2 animate-fade-in-up">
             MRIT College <br />
             <span className="text-primary">AWS Cloud Club</span>
@@ -56,7 +56,7 @@ export default async function Home() {
       </section>
 
       {/* What We Do Section */}
-      <section className="container px-4">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <SectionHeader 
           title="What We Do" 
           subtitle="We bridge the gap between academic learning and industry demands through hands-on cloud experience."
@@ -92,7 +92,7 @@ export default async function Home() {
       </section>
 
       {/* Featured Events */}
-      <section className="container px-4">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between mb-12">
           <SectionHeader title="Featured Events" />
           <Button variant="link" asChild className="text-primary hover:text-primary/80 p-0 hidden sm:flex">

@@ -19,7 +19,7 @@ async function TeamList() {
 function TeamSkeleton() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {[1, 2, 3, 4].map((i) => (
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
         <div key={i} className="glass-card h-64 rounded-xl flex flex-col items-center justify-center space-y-4 p-8">
           <Skeleton className="h-32 w-32 rounded-full" />
           <Skeleton className="h-6 w-3/4" />
@@ -32,7 +32,7 @@ function TeamSkeleton() {
 
 export default function TeamPage() {
   return (
-    <div className="container px-4 py-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SectionHeader 
         title="Meet the Team" 
         subtitle="The passionate individuals behind AWS Cloud Club MRIT who work tirelessly to bring cloud education to our campus."

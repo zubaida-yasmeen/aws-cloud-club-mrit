@@ -7,14 +7,14 @@ export default function JoinPage() {
   const meetupLink = "https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/";
 
   return (
-    <div className="container px-4 py-20 flex flex-col items-center">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center">
       <SectionHeader 
         title="Become a Member" 
         subtitle="Join a community of 250+ cloud enthusiasts and take your technology skills to the next level."
         centered
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl w-full items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl w-full items-center">
         <div className="space-y-8">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold">Why Join?</h3>
@@ -63,7 +63,7 @@ export default function JoinPage() {
 
       <div className="mt-24 text-center">
         <h4 className="text-xl font-bold mb-4">Follow our journey</h4>
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-wrap gap-4 justify-center">
           {["Instagram", "LinkedIn", "Meetup"].map((platform) => (
             <a 
               key={platform} 

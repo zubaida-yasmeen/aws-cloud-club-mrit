@@ -3,7 +3,7 @@ import { Rocket, Clock } from "lucide-react";
 
 export default function ProjectsPage() {
   return (
-    <div className="container px-4 py-20 min-h-[60vh] flex flex-col items-center justify-center text-center">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 min-h-[60vh] flex flex-col items-center justify-center text-center">
       <SectionHeader 
         title="Student Projects" 
         subtitle="Innovation happens here. Our members are currently working on exciting cloud-native solutions."

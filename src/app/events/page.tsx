@@ -35,7 +35,7 @@ function EventsSkeleton() {
 
 export default function EventsPage() {
   return (
-    <div className="container px-4 py-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SectionHeader 
         title="Events" 
         subtitle="Stay updated with our latest workshops, webinars, and meetups. We host regular sessions to keep the community active."

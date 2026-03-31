@@ -67,7 +67,7 @@ export default function AiGeneratorPage() {
   };
 
   return (
-    <div className="container px-4 py-20 max-w-5xl">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SectionHeader 
         title="AI Project Generator" 
         subtitle="Generate tailored AWS cloud projects based on your skills and interests. Powered by Google Gemini."
@@ -193,7 +193,7 @@ export default function AiGeneratorPage() {
               </Card>
             </div>
           ) : (
-            <div className="h-full flex flex-col items-center justify-center text-center p-12 border-2 border-dashed border-white/10 rounded-3xl bg-white/5">
+            <div className="h-full min-h-[400px] flex flex-col items-center justify-center text-center p-12 border-2 border-dashed border-white/10 rounded-3xl bg-white/5">
               <Sparkles className="h-16 w-16 text-muted-foreground mb-6 opacity-20" />
               <h3 className="text-xl font-bold text-muted-foreground">Ready to spark innovation?</h3>
               <p className="text-muted-foreground mt-2 max-w-xs">
