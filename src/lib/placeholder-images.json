@@ -20,7 +20,7 @@
     },
     {
       "id": "team-tech",
-      "description": "Profile of tech lead Vidyasagar D J",
+      "description": "Profile placeholder for technology leadership",
       "imageUrl": "https://picsum.photos/seed/male-tech/400/400",
       "imageHint": "tech expert"
     },
@@ -32,7 +32,7 @@
     },
     {
       "id": "team-logistics",
-      "description": "Profile of logistics lead Sheeba Fathima",
+      "description": "Profile placeholder for logistics leadership",
       "imageUrl": "https://picsum.photos/seed/female-logistics/400/400",
       "imageHint": "smiling woman"
     },
@@ -41,6 +41,24 @@
       "description": "Umme Salma - young woman with dark hair, wearing a patterned navy blue and white top, posing in front of lush pink flowers and green foliage against a clear sky background.",
       "imageUrl": "https://picsum.photos/seed/umme-salma-floral/400/400",
       "imageHint": "woman flowers"
+    },
+    {
+      "id": "faculty-sariya",
+      "description": "Profile of faculty coordinator Sariya Anjum",
+      "imageUrl": "https://picsum.photos/seed/faculty-sariya/400/400",
+      "imageHint": "professor woman"
+    },
+    {
+      "id": "faculty-gowtham",
+      "description": "Profile of faculty coordinator Mr. Gowtham A R",
+      "imageUrl": "https://picsum.photos/seed/faculty-gowtham/400/400",
+      "imageHint": "professor man"
+    },
+    {
+      "id": "faculty-seema",
+      "description": "Profile of faculty coordinator Seema Firdous",
+      "imageUrl": "https://picsum.photos/seed/faculty-seema/400/400",
+      "imageHint": "professor woman"
     },
     {
       "id": "member-gen-1",

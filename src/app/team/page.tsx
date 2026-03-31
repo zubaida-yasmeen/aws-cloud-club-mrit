@@ -1,8 +1,10 @@
+
 import { Suspense } from "react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TeamCard } from "@/components/Cards";
 import { getTeam } from "@/lib/store";
 import { Skeleton } from "@/components/ui/skeleton";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 async function TeamList() {
   const team = await getTeam();
@@ -44,13 +46,26 @@ export default function TeamPage() {
 
       <div className="mt-24">
         <SectionHeader title="Faculty Coordinators" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { name: "Mr. Gowtham A R", role: "Faculty Coordinator", image: "https://picsum.photos/seed/faculty-gowtham/400/400" },
-            { name: "Ms. Harshitha M", role: "Faculty Coordinator", image: "https://picsum.photos/seed/faculty-harshitha/400/400" }
+            { 
+              name: "Sariya Anjum", 
+              role: "Faculty Coordinator", 
+              image: PlaceHolderImages.find(i => i.id === 'faculty-sariya')?.imageUrl || '' 
+            },
+            { 
+              name: "Mr. Gowtham A R", 
+              role: "Faculty Coordinator", 
+              image: PlaceHolderImages.find(i => i.id === 'faculty-gowtham')?.imageUrl || '' 
+            },
+            { 
+              name: "Seema Firdous", 
+              role: "Faculty Coordinator", 
+              image: PlaceHolderImages.find(i => i.id === 'faculty-seema')?.imageUrl || '' 
+            }
           ].map((advisor, i) => (
-            <div key={i} className="glass-card p-6 rounded-2xl flex items-center gap-6">
-              <div className="relative h-20 w-20 shrink-0 rounded-xl overflow-hidden">
+            <div key={i} className="glass-card p-6 rounded-2xl flex items-center gap-6 transition-all hover:scale-[1.02] hover:border-primary/20">
+              <div className="relative h-20 w-20 shrink-0 rounded-xl overflow-hidden border border-white/10">
                 <img src={advisor.image} alt={advisor.name} className="object-cover h-full w-full" />
               </div>
               <div>
