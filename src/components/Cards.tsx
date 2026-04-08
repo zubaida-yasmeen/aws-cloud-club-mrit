@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Calendar, Tag, Linkedin, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -53,24 +54,24 @@ export function EventCard({ event }: { event: Event }) {
   );
 }
 
-export function TeamCard({ member }: { member: TeamMember }) {
+export function TeamCard({ member }: { member: any }) {
   return (
-    <Card className="glass-card text-center overflow-hidden transition-all hover:border-primary/50 duration-300 group">
+    <Card className="glass-card text-center overflow-hidden transition-all hover:border-primary/50 duration-300 group h-full">
       <div className="pt-8 pb-4 flex justify-center relative">
-        <div className="relative h-32 w-32 rounded-full overflow-hidden border-2 border-primary/20 p-1">
+        <div className={`relative h-32 w-32 rounded-full overflow-hidden border-2 p-1 ${member.type === 'faculty' ? 'border-amber-400/50' : 'border-primary/20'}`}>
           <Image
-            src={member.image}
+            src={member.imageUrl || 'https://picsum.photos/seed/placeholder/400/400'}
             alt={member.name}
             fill
             className="rounded-full object-cover"
           />
         </div>
       </div>
-      <CardHeader className="space-y-3">
+      <CardHeader className="space-y-3 p-4">
         <div>
-          <CardTitle className="text-lg">{member.name}</CardTitle>
+          <CardTitle className={`text-lg ${member.type === 'faculty' ? 'text-amber-400' : ''}`}>{member.name}</CardTitle>
         </div>
-        <Badge variant="secondary" className="mx-auto w-fit bg-secondary/10 text-secondary border-secondary/20">
+        <Badge variant="secondary" className={`mx-auto w-fit ${member.type === 'faculty' ? 'bg-amber-400/10 text-amber-400 border-amber-400/20' : 'bg-secondary/10 text-secondary border-secondary/20'}`}>
           {member.role}
         </Badge>
         {member.linkedin && (

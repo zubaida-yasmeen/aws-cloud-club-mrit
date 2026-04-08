@@ -54,13 +54,25 @@
           "type": "string",
           "description": "URL to the profile image of the team member.",
           "format": "uri"
+        },
+        "linkedin": {
+          "type": "string",
+          "description": "LinkedIn profile URL.",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "student",
+            "faculty"
+          ],
+          "description": "The type of team member (student lead or faculty advisor)."
         }
       },
       "required": [
-        "id",
         "name",
         "role",
-        "imageUrl"
+        "type"
       ]
     },
     "Project": {
