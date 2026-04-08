@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -179,7 +178,7 @@ export default function JoinPage() {
                         <FormItem>
                           <FormLabel>University ID (USN)</FormLabel>
                           <FormControl>
-                            <Input placeholder="4MR21CS..." {...field} className="bg-white/5 border-white/10 focus:border-primary/50" />
+                            <Input placeholder="4MU..." {...field} className="bg-white/5 border-white/10 focus:border-primary/50" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
