@@ -2,139 +2,68 @@
 "use client";
 
 import { SectionHeader } from "@/components/SectionHeader";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { 
   FileText, 
   ShieldCheck, 
   Users,
   Eye,
   Linkedin,
-  ChevronRight,
-  CircleAlert,
-  AlertTriangle
+  ShieldAlert
 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const DOCUMENTS = [
-  { title: "Club Proposal Letter", desc: "Official submission to MRIT admin.", date: "Feb 2024" },
-  { title: "Official Circulars", desc: "Approved communications and recognitions.", date: "Mar 2024" }
+  { title: "Club Proposal Letter", desc: "Official submission to MRIT administration.", href: "#" },
+  { title: "Official Circulars", desc: "Approved communications and recognition letters.", href: "#" }
+];
+
+const POLICIES = [
+  { title: "Code of Conduct", desc: "Security, communication, and member standards.", href: "#" }
 ];
 
 const CORE_LEADERSHIP = [
-  {
-    name: "Zubeda Yasmeen",
-    role: "Captain",
-    linkedIn: "https://www.linkedin.com/in/zubeda-yasmeen/",
-  },
-  {
-    name: "Umme Salma",
-    role: "Vice Captain",
-    linkedIn: "https://www.linkedin.com/in/umme-salma-6b7091325/",
-  },
-  {
-    name: "Yasmeen Taj",
-    role: "Director of Events",
-    linkedIn: "https://www.linkedin.com/in/yasmeen-taj0114/",
-  }
-];
-
-const CONDUCT_POLICY = [
-  {
-    title: "1. Authorized Communication",
-    points: [
-      "Only communications issued by the Captain/Core Team via official channels are valid.",
-      "Any other communication is unauthorized and must be ignored."
-    ]
-  },
-  {
-    title: "2. Form & Registration Policy",
-    points: [
-      "Do NOT fill or circulate any form unless officially approved.",
-      "Forms from external/unverified sources are strictly prohibited.",
-      "Individuals engaging with such forms are solely responsible for consequences."
-    ]
-  },
-  {
-    title: "3. Financial Transactions",
-    points: [
-      "Any payment must be verified by the Captain/Treasurer and sent via official channels.",
-      "Unverified requests are treated as Fraudulent and Unauthorized.",
-      "Unauthorized collectors face immediate disciplinary and legal action.",
-      "Payments to unverified sources are at the individual's own liability."
-    ]
-  },
-  {
-    title: "4. Data & Accountability",
-    points: [
-      "Only data shared by the Captain is officially accountable.",
-      "Zero responsibility for unauthorized data sharing or external links."
-    ]
-  },
-  {
-    title: "5. Fraudulent Activities",
-    points: [
-      "Misuse of club name/logo or creation of fake forms is strictly prohibited."
-    ]
-  },
-  {
-    title: "6. Content Authorization",
-    points: [
-      "All posters, announcements, and communications must be verified before release.",
-      "Unauthorized content circulation is strictly punishable."
-    ]
-  },
-  {
-    title: "7. Legal Enforcement",
-    points: [
-      "Violations lead to institutional disciplinary action.",
-      "Permanent removal from club activities.",
-      "Potential legal action under applicable laws."
-    ]
-  },
-  {
-    title: "8. Member Responsibility",
-    points: [
-      "Verify before acting.",
-      "Report suspicious activities immediately.",
-      "Protect the integrity of the club at all times."
-    ]
-  }
+  { name: "Zubeda Yasmeen", role: "Captain", linkedIn: "https://www.linkedin.com/in/zubeda-yasmeen/" },
+  { name: "Umme Salma", role: "Vice Captain", linkedIn: "https://www.linkedin.com/in/umme-salma-6b7091325/" },
+  { name: "Yasmeen Taj", role: "Director of Events", linkedIn: "https://www.linkedin.com/in/yasmeen-taj0114/" }
 ];
 
 export default function CompliancePage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16 space-y-12">
-      <header className="space-y-4">
+    <div className="max-w-5xl mx-auto px-4 py-16 space-y-16">
+      <header className="space-y-6">
         <SectionHeader 
-          title="Compliance Dashboard" 
-          subtitle="Official repository for governance, policies, and verified documentation."
+          title="Compliance & Transparency" 
+          subtitle="Official institutional dashboard for governance and verified policies."
         />
-        <Alert className="bg-primary/5 border-primary/20 text-primary-foreground py-2">
-          <ShieldCheck className="h-4 w-4 text-primary" />
-          <AlertDescription className="text-xs font-medium">
+        <Alert className="bg-primary/5 border-primary/20 text-primary py-3">
+          <ShieldAlert className="h-4 w-4" />
+          <AlertDescription className="text-sm font-semibold ml-2">
             Only official club communications are valid.
           </AlertDescription>
         </Alert>
       </header>
 
-      {/* Section: Official Documents */}
-      <section className="space-y-4">
-        <h3 className="text-sm font-bold uppercase tracking-wider flex items-center gap-2 text-muted-foreground border-b border-white/5 pb-2">
-          <FileText className="h-3.5 w-3.5" />
+      {/* Section 1: Official Documents */}
+      <section className="space-y-6">
+        <h3 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 text-muted-foreground border-b border-white/5 pb-3">
+          <FileText className="h-4 w-4" />
           Official Documents
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {DOCUMENTS.map((doc, i) => (
-            <Card key={i} className="bg-white/5 border-white/10 hover:border-primary/30 transition-colors">
-              <CardHeader className="p-4 flex flex-row items-center justify-between space-y-0">
-                <div className="space-y-1">
-                  <CardTitle className="text-sm font-bold">{doc.title}</CardTitle>
-                  <CardDescription className="text-[10px]">{doc.desc}</CardDescription>
+            <Card key={i} className="bg-white/5 border-white/10 hover:border-primary/30 transition-all duration-300">
+              <CardHeader className="p-5 flex flex-row items-center justify-between space-y-0">
+                <div className="space-y-1 pr-4">
+                  <CardTitle className="text-base font-bold">{doc.title}</CardTitle>
+                  <CardDescription className="text-xs line-clamp-1">{doc.desc}</CardDescription>
                 </div>
-                <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-primary">
-                  <Eye className="h-4 w-4" />
+                <Button variant="outline" size="sm" className="shrink-0 border-white/10 hover:bg-primary hover:text-white" asChild>
+                  <a href={doc.href} target="_blank" rel="noopener noreferrer">
+                    <Eye className="h-4 w-4 mr-2" />
+                    View
+                  </a>
                 </Button>
               </CardHeader>
             </Card>
@@ -142,85 +71,56 @@ export default function CompliancePage() {
         </div>
       </section>
 
-      {/* Section: Governance */}
-      <section className="space-y-4">
-        <h3 className="text-sm font-bold uppercase tracking-wider flex items-center gap-2 text-muted-foreground border-b border-white/5 pb-2">
-          <Users className="h-3.5 w-3.5" />
-          Core Governance
+      {/* Section 2: Governance */}
+      <section className="space-y-6">
+        <h3 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 text-muted-foreground border-b border-white/5 pb-3">
+          <Users className="h-4 w-4" />
+          Governance
         </h3>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-x-6 gap-y-4">
           {CORE_LEADERSHIP.map((leader, i) => (
-            <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2 rounded-lg text-xs hover:border-primary/30 transition-all">
-              <span className="font-bold">{leader.name}</span>
-              <span className="text-muted-foreground">|</span>
-              <span className="text-primary/80 font-medium">{leader.role}</span>
-              <a href={leader.linkedIn} target="_blank" rel="noopener noreferrer" className="ml-1 text-muted-foreground hover:text-primary">
-                <Linkedin className="h-3 w-3" />
+            <div key={i} className="flex items-center gap-3 group">
+              <div className="flex flex-col">
+                <span className="text-sm font-bold text-white group-hover:text-primary transition-colors">{leader.name}</span>
+                <span className="text-[10px] uppercase tracking-tighter text-muted-foreground font-medium">{leader.role}</span>
+              </div>
+              <a href={leader.linkedIn} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin className="h-3.5 w-3.5" />
               </a>
+              {i < CORE_LEADERSHIP.length - 1 && <div className="h-4 w-px bg-white/10 hidden sm:block ml-2" />}
             </div>
           ))}
         </div>
       </section>
 
-      {/* Section: Code of Conduct */}
+      {/* Section 3: Policies */}
       <section className="space-y-6">
-        <div className="flex items-center justify-between border-b border-white/5 pb-2">
-          <h3 className="text-sm font-bold uppercase tracking-wider flex items-center gap-2 text-muted-foreground">
-            <ShieldCheck className="h-3.5 w-3.5" />
-            Security & Code of Conduct
-          </h3>
-          <Badge variant="outline" className="text-[10px] border-primary/30 text-primary">AWS Cloud Club MRIT</Badge>
+        <h3 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 text-muted-foreground border-b border-white/5 pb-3">
+          <ShieldCheck className="h-4 w-4" />
+          Policies
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {POLICIES.map((policy, i) => (
+            <Card key={i} className="bg-white/5 border-white/10 hover:border-primary/30 transition-all duration-300">
+              <CardHeader className="p-5 flex flex-row items-center justify-between space-y-0">
+                <div className="space-y-1 pr-4">
+                  <CardTitle className="text-base font-bold">{policy.title}</CardTitle>
+                  <CardDescription className="text-xs line-clamp-1">{policy.desc}</CardDescription>
+                </div>
+                <Button variant="outline" size="sm" className="shrink-0 border-white/10 hover:bg-primary hover:text-white" asChild>
+                  <a href={policy.href} target="_blank" rel="noopener noreferrer">
+                    <Eye className="h-4 w-4 mr-2" />
+                    View
+                  </a>
+                </Button>
+              </CardHeader>
+            </Card>
+          ))}
         </div>
-
-        <Card className="bg-white/5 border-white/10 overflow-hidden">
-          <CardHeader className="p-6 bg-primary/5 border-b border-white/5">
-            <CardTitle className="text-lg font-bold">Standard of Conduct</CardTitle>
-            <CardDescription className="text-xs">
-              To ensure professionalism and security, all members must strictly adhere to these rules:
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-6 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-              {CONDUCT_POLICY.map((section, idx) => (
-                <div key={idx} className="space-y-2">
-                  <h4 className="text-sm font-bold text-primary flex items-center gap-2">
-                    {section.title}
-                  </h4>
-                  <ul className="space-y-1.5 pl-2">
-                    {section.points.map((point, pIdx) => (
-                      <li key={pIdx} className="text-xs text-muted-foreground flex items-start gap-2">
-                        <ChevronRight className="h-3 w-3 mt-0.5 text-primary/50 shrink-0" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-white/5">
-              <div className="bg-destructive/10 border border-destructive/20 p-4 rounded-lg flex gap-4">
-                <AlertTriangle className="h-5 w-5 text-destructive shrink-0" />
-                <div className="space-y-1">
-                  <h5 className="text-sm font-bold text-destructive uppercase tracking-tight">Final Notice</h5>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    Any activity, communication, or transaction not officially verified shall be considered fraudulent, and involved individuals will be held legally accountable without exception.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-          <CardFooter className="p-4 bg-primary/5 flex justify-center border-t border-white/5">
-            <div className="flex items-center gap-2 text-[10px] text-muted-foreground italic">
-              <CircleAlert className="h-3 w-3 text-primary" />
-              Official policies are subject to updates by the Core Team.
-            </div>
-          </CardFooter>
-        </Card>
       </section>
 
-      <footer className="text-center pt-8 border-t border-white/5">
-        <p className="text-[10px] text-muted-foreground">
+      <footer className="text-center pt-12 border-t border-white/5">
+        <p className="text-xs text-muted-foreground font-medium italic">
           Unverified forms or payments are not the responsibility of the club.
         </p>
       </footer>
