@@ -23,7 +23,8 @@ import {
   Banknote,
   Crown,
   Workflow,
-  GanttChartSquare
+  GanttChartSquare,
+  AlertTriangle
 } from "lucide-react";
 import {
   Dialog,
@@ -38,7 +39,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 interface OfficialDocument {
@@ -102,7 +103,7 @@ const GOVERNANCE_ROLES = [
     responsibilities: [
       "Strategic leadership and vision for the club",
       "Primary liaison with AWS Community Managers",
-      "Overseeing all club departments and project deliveries",
+      "Oversecing all club departments and project deliveries",
       "Chairing board meetings and major event planning"
     ]
   },
@@ -139,6 +140,15 @@ export default function CompliancePage() {
         title="Compliance & Transparency" 
         subtitle="Official repository for club policies, governance, and verified documents. We maintain high standards of accountability and campus integrity."
       />
+
+      {/* Global Official Channel Banner */}
+      <Alert className="mb-12 bg-primary/10 border-primary/30 text-primary-foreground/90">
+        <ShieldCheck className="h-5 w-5 text-primary" />
+        <AlertTitle className="font-bold ml-2">Official Channel Verification</AlertTitle>
+        <AlertDescription className="ml-2">
+          Only documents and communications issued by the Captain or official channels are valid.
+        </AlertDescription>
+      </Alert>
 
       <div className="space-y-24">
         {/* Official Documents Section */}
@@ -325,13 +335,24 @@ export default function CompliancePage() {
             <h3 className="text-2xl font-bold">Policies & Guidelines</h3>
           </div>
 
-          <Alert className="mb-8 bg-amber-500/10 border-amber-500/30 text-amber-200">
-            <AlertCircle className="h-4 w-4 !text-amber-500" />
-            <AlertTitle className="font-bold">Official Notice</AlertTitle>
-            <AlertDescription>
-              Only policies issued by official club authorities and verified by faculty coordinators are valid. Any unofficial documentation circulating outside this repository is not binding and may not reflect current club standards.
-            </AlertDescription>
-          </Alert>
+          <div className="space-y-4 mb-8">
+            <Alert className="bg-amber-500/10 border-amber-500/30 text-amber-200">
+              <AlertCircle className="h-4 w-4 !text-amber-500" />
+              <AlertTitle className="font-bold">Official Notice</AlertTitle>
+              <AlertDescription>
+                Only policies issued by official club authorities and verified by faculty coordinators are valid. Any unofficial documentation circulating outside this repository is not binding and may not reflect current club standards.
+              </AlertDescription>
+            </Alert>
+
+            {/* Financial Warning */}
+            <Alert className="bg-destructive/10 border-destructive/30 text-destructive-foreground">
+              <AlertTriangle className="h-4 w-4 text-destructive" />
+              <AlertTitle className="font-bold">Financial Integrity Warning</AlertTitle>
+              <AlertDescription>
+                All payments must be verified by the Captain or Treasurer. Unverified transactions are fraudulent and may lead to legal action.
+              </AlertDescription>
+            </Alert>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {POLICIES.map((policy, idx) => (

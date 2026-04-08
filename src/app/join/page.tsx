@@ -1,7 +1,8 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Cloud, CheckCircle2, Users, Trophy, ExternalLink } from "lucide-react";
+import { Cloud, CheckCircle2, Users, Trophy, ExternalLink, AlertCircle } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function JoinPage() {
   const meetupLink = "https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/";
@@ -14,6 +15,14 @@ export default function JoinPage() {
         subtitle="Join a community of 250+ cloud enthusiasts and take your technology skills to the next level."
         centered
       />
+
+      <Alert className="mb-12 bg-amber-500/10 border-amber-500/30 text-amber-200 max-w-2xl">
+        <AlertCircle className="h-4 w-4 !text-amber-500" />
+        <AlertTitle className="font-bold">Official Form Policy</AlertTitle>
+        <AlertDescription>
+          Only fill forms shared via official channels. External forms are not the responsibility of the club.
+        </AlertDescription>
+      </Alert>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl w-full items-center">
         <div className="space-y-8">

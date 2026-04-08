@@ -3,7 +3,8 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { EventCard } from "@/components/Cards";
 import { getEvents } from "@/lib/store";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Mail } from "lucide-react";
+import { Mail, AlertCircle } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 async function EventsList() {
   const events = await getEvents();
@@ -41,6 +42,14 @@ export default function EventsPage() {
         title="Events" 
         subtitle="Stay updated with our latest workshops, webinars, and meetups. We host regular sessions to keep the community active."
       />
+
+      <Alert className="mb-12 bg-amber-500/10 border-amber-500/30 text-amber-200 max-w-4xl mx-auto">
+        <AlertCircle className="h-4 w-4 !text-amber-500" />
+        <AlertTitle className="font-bold">Registration Disclaimer</AlertTitle>
+        <AlertDescription>
+          Only fill forms shared via official channels. External forms are not the responsibility of the club.
+        </AlertDescription>
+      </Alert>
       
       <Suspense fallback={<EventsSkeleton />}>
         <EventsList />
