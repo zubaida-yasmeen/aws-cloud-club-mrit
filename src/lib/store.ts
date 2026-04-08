@@ -3,7 +3,7 @@ import { PlaceHolderImages } from './placeholder-images';
 export interface Event {
   id: string;
   title: string;
-  date: string;
+  date: string; // ISO string for precise date logic
   description: string;
   image: string;
   link?: string;
@@ -26,33 +26,39 @@ export interface Project {
 }
 
 export async function getEvents(): Promise<Event[]> {
+  // Using relative dates for the demo to show logic in action
+  const now = new Date();
+  const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  const nextMonth = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+  const lastMonth = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+
   return [
     {
       id: '1',
       title: 'Introduction to AWS Cloud Club MRIT',
-      date: 'Sun, Mar 29, 2026, 8:00 PM',
+      date: lastMonth.toISOString(),
       description: 'The introductory session for AWS Cloud Club at MRIT has been successfully conducted. We shared our vision, goals, and the exciting roadmap for cloud enthusiasts on campus.',
       image: PlaceHolderImages.find(i => i.id === 'event-inauguration')?.imageUrl || '',
       link: 'https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/events/313998864/',
     },
     {
       id: '4',
-      title: 'Cloud Club Inauguration',
-      date: 'Date to be announced',
+      title: 'Cloud Club Inauguration Ceremony',
+      date: tomorrow.toISOString(),
       description: 'Celebrate the official inauguration of the AWS Cloud Club at MRIT. A landmark event featuring faculty members, student leaders, and industry insights.',
       image: PlaceHolderImages.find(i => i.id === 'event-launch')?.imageUrl || '',
     },
     {
       id: '2',
       title: 'AWS Discovery Day',
-      date: 'Date to be announced',
+      date: nextMonth.toISOString(),
       description: 'An introductory session to AWS Cloud concepts and services for beginners.',
       image: PlaceHolderImages.find(i => i.id === 'event-aws-discovery')?.imageUrl || '',
     },
     {
       id: '3',
       title: 'Cloud Jam Workshop',
-      date: 'Date to be announced',
+      date: nextMonth.toISOString(),
       description: 'Hands-on coding session exploring Serverless architectures with AWS Lambda.',
       image: PlaceHolderImages.find(i => i.id === 'event-cloud-jam')?.imageUrl || '',
     }
