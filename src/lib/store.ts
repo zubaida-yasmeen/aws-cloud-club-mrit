@@ -28,7 +28,6 @@ export interface Project {
 }
 
 export async function getEvents(): Promise<Event[]> {
-  // Using relative dates for the demo to show logic in action
   const now = new Date();
   const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
   const nextMonth = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
@@ -99,12 +98,12 @@ export async function getTeam(): Promise<TeamMember[]> {
       linkedin: 'https://www.linkedin.com/in/zubeda-yasmeen/',
     },
     {
-      id: '5',
-      name: 'Umme Salma',
+      id: 'v1',
+      name: 'S H Bhavya',
       role: 'Vice Captain',
-      image: PlaceHolderImages.find(i => i.id === 'team-doc')?.imageUrl || '',
+      image: PlaceHolderImages.find(i => i.id === 'team-vice-captain')?.imageUrl || '',
       type: 'student',
-      linkedin: 'https://www.linkedin.com/in/umme-salma-6b7091325/',
+      linkedin: 'https://www.linkedin.com/in/sh-bhavya',
     },
     {
       id: '3',
@@ -115,24 +114,42 @@ export async function getTeam(): Promise<TeamMember[]> {
       linkedin: 'https://www.linkedin.com/in/yasmeen-taj0114/',
     },
     {
-      id: 'm1',
-      name: 'Member Name',
-      role: 'Director of Membership & Engagement',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-1')?.imageUrl || '',
+      id: '5',
+      name: 'Umme Salma',
+      role: 'Director of Marketing & Outreach',
+      image: PlaceHolderImages.find(i => i.id === 'team-marketing')?.imageUrl || '',
       type: 'student',
+      linkedin: 'https://www.linkedin.com/in/umme-salma-6b7091325/',
+    },
+    {
+      id: 'm1',
+      name: 'Deepika L Bennur',
+      role: 'Director of Membership & Engagement',
+      image: PlaceHolderImages.find(i => i.id === 'team-membership')?.imageUrl || '',
+      type: 'student',
+      linkedin: 'https://www.linkedin.com/in/deepika-l-bennur-9b8b3132b',
     },
     {
       id: 'm2',
-      name: 'Member Name',
-      role: 'Director of Data & Operations',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-2')?.imageUrl || '',
+      name: 'Arnav Nishant',
+      role: 'Assistant Director of Membership & Engagement',
+      image: PlaceHolderImages.find(i => i.id === 'team-arnav')?.imageUrl || '',
       type: 'student',
+      linkedin: 'https://www.linkedin.com/in/arnav-nishanth-6aa7b5376',
     },
     {
-      id: 'm3',
-      name: 'Member Name',
+      id: 't1',
+      name: 'Ahmed Faraaz',
       role: 'Director of Technology',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-3')?.imageUrl || '',
+      image: PlaceHolderImages.find(i => i.id === 'team-faraaz')?.imageUrl || '',
+      type: 'student',
+      linkedin: 'https://www.linkedin.com/in/ahmed-faraaz-b69247343',
+    },
+    {
+      id: 't2',
+      name: 'Aqsaa Sheik',
+      role: 'Assistant Director of Technology',
+      image: PlaceHolderImages.find(i => i.id === 'team-aqsaa')?.imageUrl || '',
       type: 'student',
     }
   ];

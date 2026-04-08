@@ -19,10 +19,16 @@
       "imageHint": "professional woman"
     },
     {
-      "id": "team-tech",
-      "description": "Profile placeholder for technology leadership",
-      "imageUrl": "https://picsum.photos/seed/male-tech/400/400",
-      "imageHint": "tech expert"
+      "id": "team-vice-captain",
+      "description": "Profile of vice captain S H Bhavya",
+      "imageUrl": "https://picsum.photos/seed/female-bhavya/400/400",
+      "imageHint": "student woman"
+    },
+    {
+      "id": "team-marketing",
+      "description": "Profile of Umme Salma - Director of Marketing",
+      "imageUrl": "https://picsum.photos/seed/umme-salma-floral/400/400",
+      "imageHint": "woman flowers"
     },
     {
       "id": "team-event",
@@ -31,16 +37,28 @@
       "imageHint": "manager woman"
     },
     {
-      "id": "team-logistics",
-      "description": "Profile placeholder for logistics leadership",
-      "imageUrl": "https://picsum.photos/seed/female-logistics/400/400",
+      "id": "team-membership",
+      "description": "Profile of Deepika L Bennur",
+      "imageUrl": "https://picsum.photos/seed/female-deepika/400/400",
       "imageHint": "smiling woman"
     },
     {
-      "id": "team-doc",
-      "description": "Umme Salma - young woman with dark hair, wearing a patterned navy blue and white top, posing in front of lush pink flowers and green foliage against a clear sky background.",
-      "imageUrl": "https://picsum.photos/seed/umme-salma-floral/400/400",
-      "imageHint": "woman flowers"
+      "id": "team-arnav",
+      "description": "Profile of Arnav Nishant",
+      "imageUrl": "https://picsum.photos/seed/male-arnav/400/400",
+      "imageHint": "tech man"
+    },
+    {
+      "id": "team-faraaz",
+      "description": "Profile of Ahmed Faraaz",
+      "imageUrl": "https://picsum.photos/seed/male-faraaz/400/400",
+      "imageHint": "developer man"
+    },
+    {
+      "id": "team-aqsaa",
+      "description": "Profile of Aqsaa Sheik",
+      "imageUrl": "https://picsum.photos/seed/female-aqsaa/400/400",
+      "imageHint": "professional woman"
     },
     {
       "id": "faculty-harshitha",
@@ -59,66 +77,6 @@
       "description": "Mr. Gowtham A R - Faculty Coordinator, Dept of CSE",
       "imageUrl": "https://picsum.photos/seed/faculty-gowtham/400/400",
       "imageHint": "professor man"
-    },
-    {
-      "id": "faculty-seema",
-      "description": "Profile of faculty coordinator Seema Firdous",
-      "imageUrl": "https://picsum.photos/seed/faculty-seema/400/400",
-      "imageHint": "professor woman"
-    },
-    {
-      "id": "member-gen-1",
-      "description": "Generic member profile 1",
-      "imageUrl": "https://picsum.photos/seed/m1/400/400",
-      "imageHint": "student profile"
-    },
-    {
-      "id": "member-gen-2",
-      "description": "Generic member profile 2",
-      "imageUrl": "https://picsum.photos/seed/m2/400/400",
-      "imageHint": "student profile"
-    },
-    {
-      "id": "member-gen-3",
-      "description": "Generic member profile 3",
-      "imageUrl": "https://picsum.photos/seed/m3/400/400",
-      "imageHint": "student profile"
-    },
-    {
-      "id": "member-gen-4",
-      "description": "Generic member profile 4",
-      "imageUrl": "https://picsum.photos/seed/m4/400/400",
-      "imageHint": "student profile"
-    },
-    {
-      "id": "member-gen-5",
-      "description": "Generic member profile 5",
-      "imageUrl": "https://picsum.photos/seed/m5/400/400",
-      "imageHint": "student profile"
-    },
-    {
-      "id": "member-gen-6",
-      "description": "Generic member profile 6",
-      "imageUrl": "https://picsum.photos/seed/m6/400/400",
-      "imageHint": "student profile"
-    },
-    {
-      "id": "member-gen-7",
-      "description": "Generic member profile 7",
-      "imageUrl": "https://picsum.photos/seed/m7/400/400",
-      "imageHint": "student profile"
-    },
-    {
-      "id": "member-gen-8",
-      "description": "Generic member profile 8",
-      "imageUrl": "https://picsum.photos/seed/m8/400/400",
-      "imageHint": "student profile"
-    },
-    {
-      "id": "member-gen-9",
-      "description": "Generic member profile 9",
-      "imageUrl": "https://picsum.photos/seed/m9/400/400",
-      "imageHint": "student profile"
     },
     {
       "id": "event-inauguration",
