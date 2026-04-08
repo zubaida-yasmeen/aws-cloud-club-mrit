@@ -36,6 +36,13 @@ export async function getEvents(): Promise<Event[]> {
       link: 'https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/events/313998864/',
     },
     {
+      id: '4',
+      title: 'Cloud Club Inauguration',
+      date: 'Date to be announced',
+      description: 'Celebrate the official inauguration of the AWS Cloud Club at MRIT. A landmark event featuring faculty members, student leaders, and industry insights.',
+      image: PlaceHolderImages.find(i => i.id === 'event-launch')?.imageUrl || '',
+    },
+    {
       id: '2',
       title: 'AWS Discovery Day',
       date: 'Date to be announced',

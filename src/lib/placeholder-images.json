@@ -131,6 +131,12 @@
       "description": "Cloud Jam Workshop",
       "imageUrl": "https://picsum.photos/seed/event2/600/400",
       "imageHint": "coding session"
+    },
+    {
+      "id": "event-launch",
+      "description": "Official Club Launch and Ceremony",
+      "imageUrl": "https://picsum.photos/seed/club-launch/600/400",
+      "imageHint": "celebration ceremony"
     }
   ]
 }
