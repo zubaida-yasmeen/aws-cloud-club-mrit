@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { Calendar, Tag, Linkedin } from "lucide-react";
+import { Calendar, Tag, Linkedin, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Event, TeamMember, Project } from "@/lib/store";
 
 export function EventCard({ event }: { event: Event }) {
-  return (
-    <Card className="glass-card group overflow-hidden transition-all hover:-translate-y-2 duration-300">
+  const CardContentComponent = (
+    <>
       <div className="relative h-48 w-full overflow-hidden">
         <Image
           src={event.image}
@@ -15,19 +15,40 @@ export function EventCard({ event }: { event: Event }) {
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        {event.link && (
+          <div className="absolute top-4 right-4 bg-primary/90 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+            <ExternalLink className="h-4 w-4" />
+          </div>
+        )}
       </div>
       <CardHeader>
-        <div className="flex items-center gap-2 text-xs text-primary mb-2">
+        <div className="flex items-center gap-2 text-xs text-primary mb-2 font-semibold">
           <Calendar className="h-3 w-3" />
           {event.date}
         </div>
-        <CardTitle className="text-xl group-hover:text-primary transition-colors">{event.title}</CardTitle>
+        <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2">{event.title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-muted-foreground line-clamp-3">
+        <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
           {event.description}
         </p>
       </CardContent>
+    </>
+  );
+
+  if (event.link) {
+    return (
+      <a href={event.link} target="_blank" rel="noopener noreferrer" className="block h-full">
+        <Card className="glass-card group overflow-hidden transition-all hover:-translate-y-2 duration-300 h-full border-primary/10 hover:border-primary/40">
+          {CardContentComponent}
+        </Card>
+      </a>
+    );
+  }
+
+  return (
+    <Card className="glass-card group overflow-hidden transition-all hover:-translate-y-2 duration-300 h-full">
+      {CardContentComponent}
     </Card>
   );
 }

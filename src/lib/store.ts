@@ -6,6 +6,7 @@ export interface Event {
   date: string;
   description: string;
   image: string;
+  link?: string;
 }
 
 export interface TeamMember {
@@ -28,10 +29,11 @@ export async function getEvents(): Promise<Event[]> {
   return [
     {
       id: '1',
-      title: 'Official Club Inauguration',
-      date: 'Date to be announced',
-      description: 'The grand unveiling of the AWS Cloud Club at MRIT. Join us for an inspiring launch event with faculty and student leaders.',
+      title: 'Introduction to AWS Cloud Club MRIT',
+      date: 'Sun, Mar 29, 2026, 8:00 PM',
+      description: 'Introduction to AWS Cloud Club at Mysuru Royal Institute of Technology. Join us to learn about our community, goals, and how you can be a part of the cloud revolution.',
       image: PlaceHolderImages.find(i => i.id === 'event-inauguration')?.imageUrl || '',
+      link: 'https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/events/313998864/',
     },
     {
       id: '2',
