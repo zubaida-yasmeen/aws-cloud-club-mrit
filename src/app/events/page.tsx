@@ -48,7 +48,9 @@ export default function EventsPage() {
       <div className="mt-20 p-10 bg-secondary/10 rounded-3xl border border-secondary/20 text-center">
         <h3 className="text-2xl font-bold mb-4">Have an idea for an event?</h3>
         <p className="text-muted-foreground mb-6">We're always looking for new topics and speakers. Reach out to us!</p>
-        <a href="mailto:awscloudclub@mysururoyal.org" className="text-primary font-medium hover:underline">Contact the Event Lead</a>
+        <a href="mailto:awscloudclub@mysururoyal.org" className="text-primary font-medium hover:underline">
+          Contact the Event Lead
+        </a>
       </div>
     </div>
   );

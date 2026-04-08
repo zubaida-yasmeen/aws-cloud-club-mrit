@@ -102,7 +102,7 @@ If you're interested:
 
 ## 📬 Contact
 
-📧 [awsclub@mysururoyal.org](mailto:awsclub@mysururoyal.org)
+📧 [awscloudclub@mysururoyal.org](mailto:awscloudclub@mysururoyal.org)
 
 ---
 

@@ -51,8 +51,10 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <span>awscloudclub@mysururoyal.org </span>
+                <Mail className="h-4 w-4 text-primary" />
+                <a href="mailto:awscloudclub@mysururoyal.org" className="hover:text-primary transition-colors">
+                  awscloudclub@mysururoyal.org
+                </a>
               </li>
               <li className="text-sm">Mysuru Royal Institute of Technology, Mandya, Karnataka</li>
             </ul>
