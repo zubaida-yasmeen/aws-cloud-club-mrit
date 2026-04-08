@@ -2,6 +2,9 @@ import Link from "next/link";
 import { Linkedin, Mail, Users } from "lucide-react";
 
 export function Footer() {
+  const linkedinUrl = "https://www.linkedin.com/company/aws-cloud-club-mrit/";
+  const meetupUrl = "https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/";
+
   return (
     <footer className="border-t border-white/10 bg-background pt-12 pb-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -14,11 +17,17 @@ export function Footer() {
               Empowering students at Mysuru Royal Institute of Technology to build the next generation of cloud solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a 
+                href={linkedinUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                title="Follow us on LinkedIn"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/" 
+                href={meetupUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -43,7 +52,7 @@ export function Footer() {
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>awscloudclub@mysururoyal.org</span>
+                <span>awscloudclub@mysururoyal.org </span>
               </li>
               <li className="text-sm">Mysuru Royal Institute of Technology, Mandya, Karnataka</li>
             </ul>

@@ -5,6 +5,7 @@ import { Cloud, CheckCircle2, Users, Trophy, ExternalLink } from "lucide-react";
 
 export default function JoinPage() {
   const meetupLink = "https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/";
+  const linkedinLink = "https://www.linkedin.com/company/aws-cloud-club-mrit/";
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center">
@@ -64,18 +65,24 @@ export default function JoinPage() {
       <div className="mt-24 text-center">
         <h4 className="text-xl font-bold mb-4">Follow our journey</h4>
         <div className="flex flex-wrap gap-4 justify-center">
-          {["Instagram", "LinkedIn", "Meetup"].map((platform) => (
-            <a 
-              key={platform} 
-              href={platform === "Meetup" ? meetupLink : "#"} 
-              target={platform === "Meetup" ? "_blank" : undefined}
-              rel={platform === "Meetup" ? "noopener noreferrer" : undefined}
-            >
-              <Badge className="px-6 py-2 bg-white/5 hover:bg-primary/10 transition-colors cursor-pointer border-white/10">
-                {platform}
-              </Badge>
-            </a>
-          ))}
+          {["Instagram", "LinkedIn", "Meetup"].map((platform) => {
+            let href = "#";
+            if (platform === "Meetup") href = meetupLink;
+            if (platform === "LinkedIn") href = linkedinLink;
+
+            return (
+              <a 
+                key={platform} 
+                href={href} 
+                target={href !== "#" ? "_blank" : undefined}
+                rel={href !== "#" ? "noopener noreferrer" : undefined}
+              >
+                <Badge className="px-6 py-2 bg-white/5 hover:bg-primary/10 transition-colors cursor-pointer border-white/10">
+                  {platform}
+                </Badge>
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>
