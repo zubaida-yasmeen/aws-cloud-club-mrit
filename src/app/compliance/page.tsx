@@ -39,7 +39,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/accordion";
+} from "@/components/ui/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 interface OfficialDocument {
@@ -103,7 +103,7 @@ const GOVERNANCE_ROLES = [
     responsibilities: [
       "Strategic leadership and vision for the club",
       "Primary liaison with AWS Community Managers",
-      "Oversecing all club departments and project deliveries",
+      "Overseeing all club departments and project deliveries",
       "Chairing board meetings and major event planning"
     ]
   },
