@@ -25,7 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Cloud, CheckCircle2, Users, Trophy, ExternalLink, Sparkles, Loader2 } from "lucide-react";
+import { Cloud, CheckCircle2, Users, Trophy, ExternalLink, Sparkles, Loader2, Mail } from "lucide-react";
 import { collection, serverTimestamp, addDoc } from "firebase/firestore";
 import { useFirestore } from "@/firebase";
 import { useToast } from "@/hooks/use-toast";
@@ -66,6 +66,7 @@ export default function JoinPage() {
   const { toast } = useToast();
   
   const whatsappLink = "https://chat.whatsapp.com/Lgs9RQz58ybDQCpWXOT45i";
+  const clubEmail = "awscloudclub@mysururoyal.org";
 
   const form = useForm<RegistrationFormValues>({
     resolver: zodResolver(registrationSchema),
@@ -86,13 +87,23 @@ export default function JoinPage() {
         createdAt: serverTimestamp(),
       });
       
+      // Prepare and trigger mailto
+      const emailBody = `New Member Registration Details:\n\nFull Name: ${data.fullName}\nCollege Email: ${data.collegeEmail}\nUniversity ID (USN): ${data.usn}\nPrimary Interest: ${data.primaryInterest}\n\nSubmitted on: ${new Date().toLocaleString()}`;
+      const mailtoUrl = `mailto:${clubEmail}?subject=New Member Registration - ${data.fullName}&body=${encodeURIComponent(emailBody)}`;
+      
       setIsSubmitted(true);
-      window.open(whatsappLink, "_blank");
-
+      
       toast({
         title: "Welcome to AWS Cloud Club!",
-        description: "Your registration was successful. Redirecting to our community...",
+        description: "Registration successful. Opening community links and email notification...",
       });
+
+      // Opening WhatsApp and Mailto
+      setTimeout(() => {
+        window.open(whatsappLink, "_blank");
+        window.location.href = mailtoUrl;
+      }, 500);
+
     } catch (error) {
       console.error("Error submitting registration:", error);
       toast({
@@ -113,9 +124,13 @@ export default function JoinPage() {
             <CheckCircle2 className="h-10 w-10 text-primary" />
           </div>
           <h2 className="text-4xl font-bold mb-4">You're In!</h2>
-          <p className="text-xl text-muted-foreground mb-10">
-            Your membership application for AWS Cloud Club MRIT has been received. Welcome to the cloud community!
+          <p className="text-xl text-muted-foreground mb-6">
+            Your membership application for AWS Cloud Club MRIT has been received.
           </p>
+          <div className="p-4 bg-white/5 rounded-xl border border-white/10 mb-10 text-sm text-muted-foreground flex items-center justify-center gap-2">
+            <Mail className="h-4 w-4 text-primary" />
+            An official registration email has been generated for the club.
+          </div>
           <div className="flex flex-col gap-4">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 h-14 text-lg font-bold shadow-lg shadow-primary/20">
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
