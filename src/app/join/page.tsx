@@ -35,7 +35,16 @@ const registrationSchema = z.object({
     return email.endsWith(".edu") || email.endsWith("@mysururoyal.org");
   }, "Please use your official college email address (ending in .edu or @mysururoyal.org)."),
   usn: z.string().min(5, "University ID must be at least 5 characters."),
-  primaryInterest: z.enum(["Cloud", "AI/ML", "DevOps"], {
+  primaryInterest: z.enum([
+    "Cloud Architecture", 
+    "Serverless Computing", 
+    "AI & Machine Learning", 
+    "DevOps & Automation", 
+    "Cloud Security", 
+    "Big Data & Analytics", 
+    "Internet of Things (IoT)", 
+    "Full Stack Web Development"
+  ], {
     required_error: "Please select a primary area of interest.",
   }),
 });
@@ -63,7 +72,6 @@ export default function JoinPage() {
   async function onSubmit(data: RegistrationFormValues) {
     setIsSubmitting(true);
     try {
-      // Saving to 'club_members' collection as requested
       const membersRef = collection(db, "club_members");
       await addDoc(membersRef, {
         ...data,
@@ -71,8 +79,6 @@ export default function JoinPage() {
       });
       
       setIsSubmitted(true);
-      
-      // Automatically open the WhatsApp link in a new tab
       window.open(whatsappLink, "_blank");
 
       toast({
@@ -127,7 +133,6 @@ export default function JoinPage() {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* Form Section */}
         <div className="lg:col-span-7">
           <Card className="glass-card border-white/10 overflow-hidden shadow-2xl">
             <CardHeader className="bg-primary/5 border-b border-white/10">
@@ -199,9 +204,14 @@ export default function JoinPage() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="Cloud">Cloud Computing</SelectItem>
-                            <SelectItem value="AI/ML">AI & Machine Learning</SelectItem>
-                            <SelectItem value="DevOps">DevOps & Automation</SelectItem>
+                            <SelectItem value="Cloud Architecture">Cloud Architecture</SelectItem>
+                            <SelectItem value="Serverless Computing">Serverless Computing</SelectItem>
+                            <SelectItem value="AI & Machine Learning">AI & Machine Learning</SelectItem>
+                            <SelectItem value="DevOps & Automation">DevOps & Automation</SelectItem>
+                            <SelectItem value="Cloud Security">Cloud Security</SelectItem>
+                            <SelectItem value="Big Data & Analytics">Big Data & Analytics</SelectItem>
+                            <SelectItem value="Internet of Things (IoT)">Internet of Things (IoT)</SelectItem>
+                            <SelectItem value="Full Stack Web Development">Full Stack Web Development</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -229,7 +239,6 @@ export default function JoinPage() {
           </Card>
         </div>
 
-        {/* Benefits Section */}
         <div className="lg:col-span-5 space-y-6">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white">Member Exclusives</h3>
