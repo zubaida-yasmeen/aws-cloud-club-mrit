@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <span className="text-lg font-bold">AWS Cloud Club – MRIT</span>
+              <span className="text-lg font-bold">AWS <span className="text-primary">Cloud Club</span> – MRIT</span>
             </Link>
             <p className="text-muted-foreground max-w-sm mb-6">
               Empowering students at Mysuru Royal Institute of Technology to build the next generation of cloud solutions.
@@ -61,8 +61,12 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-white/5 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} AWS Cloud Club – MRIT. All rights reserved.</p>
+
+        <div className="mt-12 pt-8 border-t border-white/5 text-center">
+          <p className="text-[10px] sm:text-xs text-muted-foreground/60 max-w-3xl mx-auto mb-4 leading-relaxed italic">
+            Disclaimer: AWS Cloud Club MRIT is not responsible for unauthorized forms, links, or financial transactions not verified by official communication channels. Always verify information through the Captain or Treasurer.
+          </p>
+          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} AWS Cloud Club – MRIT. All rights reserved.</p>
         </div>
       </div>
     </footer>
