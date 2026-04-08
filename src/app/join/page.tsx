@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -36,14 +37,21 @@ const registrationSchema = z.object({
   }, "Please use your official college email address (ending in .edu or @mysururoyal.org)."),
   usn: z.string().min(5, "University ID must be at least 5 characters."),
   primaryInterest: z.enum([
-    "Cloud Architecture", 
-    "Serverless Computing", 
-    "AI & Machine Learning", 
-    "DevOps & Automation", 
-    "Cloud Security", 
-    "Big Data & Analytics", 
-    "Internet of Things (IoT)", 
-    "Full Stack Web Development"
+    "Cloud Architecture",
+    "Serverless Computing",
+    "AI & Machine Learning (Generative AI)",
+    "DevOps & CI/CD",
+    "Cloud Security & Compliance",
+    "Big Data & Analytics",
+    "Internet of Things (IoT)",
+    "Full Stack Development (AWS Amplify)",
+    "Database Engineering (SQL/NoSQL)",
+    "Networking & Content Delivery",
+    "Containers & Kubernetes (ECS/EKS)",
+    "Cloud Financial Management (FinOps)",
+    "Site Reliability Engineering (SRE)",
+    "High Performance Computing (HPC)",
+    "Hybrid Cloud Solutions"
   ], {
     required_error: "Please select a primary area of interest.",
   }),
@@ -203,15 +211,22 @@ export default function JoinPage() {
                               <SelectValue placeholder="Select your technical interest" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
+                          <SelectContent className="max-h-[300px]">
                             <SelectItem value="Cloud Architecture">Cloud Architecture</SelectItem>
                             <SelectItem value="Serverless Computing">Serverless Computing</SelectItem>
-                            <SelectItem value="AI & Machine Learning">AI & Machine Learning</SelectItem>
-                            <SelectItem value="DevOps & Automation">DevOps & Automation</SelectItem>
-                            <SelectItem value="Cloud Security">Cloud Security</SelectItem>
+                            <SelectItem value="AI & Machine Learning (Generative AI)">AI & Machine Learning (Generative AI)</SelectItem>
+                            <SelectItem value="DevOps & CI/CD">DevOps & CI/CD</SelectItem>
+                            <SelectItem value="Cloud Security & Compliance">Cloud Security & Compliance</SelectItem>
                             <SelectItem value="Big Data & Analytics">Big Data & Analytics</SelectItem>
                             <SelectItem value="Internet of Things (IoT)">Internet of Things (IoT)</SelectItem>
-                            <SelectItem value="Full Stack Web Development">Full Stack Web Development</SelectItem>
+                            <SelectItem value="Full Stack Development (AWS Amplify)">Full Stack Development (AWS Amplify)</SelectItem>
+                            <SelectItem value="Database Engineering (SQL/NoSQL)">Database Engineering (SQL/NoSQL)</SelectItem>
+                            <SelectItem value="Networking & Content Delivery">Networking & Content Delivery</SelectItem>
+                            <SelectItem value="Containers & Kubernetes (ECS/EKS)">Containers & Kubernetes (ECS/EKS)</SelectItem>
+                            <SelectItem value="Cloud Financial Management (FinOps)">Cloud Financial Management (FinOps)</SelectItem>
+                            <SelectItem value="Site Reliability Engineering (SRE)">Site Reliability Engineering (SRE)</SelectItem>
+                            <SelectItem value="High Performance Computing (HPC)">High Performance Computing (HPC)</SelectItem>
+                            <SelectItem value="Hybrid Cloud Solutions">Hybrid Cloud Solutions</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />

@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "Event": {
@@ -131,12 +132,19 @@
           "enum": [
             "Cloud Architecture",
             "Serverless Computing",
-            "AI & Machine Learning",
-            "DevOps & Automation",
-            "Cloud Security",
+            "AI & Machine Learning (Generative AI)",
+            "DevOps & CI/CD",
+            "Cloud Security & Compliance",
             "Big Data & Analytics",
             "Internet of Things (IoT)",
-            "Full Stack Web Development"
+            "Full Stack Development (AWS Amplify)",
+            "Database Engineering (SQL/NoSQL)",
+            "Networking & Content Delivery",
+            "Containers & Kubernetes (ECS/EKS)",
+            "Cloud Financial Management (FinOps)",
+            "Site Reliability Engineering (SRE)",
+            "High Performance Computing (HPC)",
+            "Hybrid Cloud Solutions"
           ],
           "description": "The student's primary area of interest in technology."
         },
