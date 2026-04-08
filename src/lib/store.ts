@@ -1,3 +1,4 @@
+
 import { PlaceHolderImages } from './placeholder-images';
 
 export interface Event {
@@ -14,6 +15,7 @@ export interface TeamMember {
   name: string;
   role: string;
   image: string;
+  type: 'student' | 'faculty';
   linkedin?: string;
 }
 
@@ -68,10 +70,32 @@ export async function getEvents(): Promise<Event[]> {
 export async function getTeam(): Promise<TeamMember[]> {
   return [
     {
+      id: 'f1',
+      name: 'Ms. Harshitha M',
+      role: 'Assistant Professor, Dept of CSE',
+      image: PlaceHolderImages.find(i => i.id === 'faculty-harshitha')?.imageUrl || '',
+      type: 'faculty',
+    },
+    {
+      id: 'f2',
+      name: 'Mr. Gowtham A R',
+      role: 'Faculty Coordinator, Dept of CSE',
+      image: PlaceHolderImages.find(i => i.id === 'faculty-gowtham')?.imageUrl || '',
+      type: 'faculty',
+    },
+    {
+      id: 'f3',
+      name: 'Ms. Sariya Anjum',
+      role: 'Faculty Coordinator, Dept of CSE',
+      image: PlaceHolderImages.find(i => i.id === 'faculty-sariya')?.imageUrl || '',
+      type: 'faculty',
+    },
+    {
       id: '1',
       name: 'Zubeda Yasmeen',
       role: 'Club Captain',
       image: PlaceHolderImages.find(i => i.id === 'team-captain')?.imageUrl || '',
+      type: 'student',
       linkedin: 'https://www.linkedin.com/in/zubeda-yasmeen/',
     },
     {
@@ -79,6 +103,7 @@ export async function getTeam(): Promise<TeamMember[]> {
       name: 'Umme Salma',
       role: 'Vice Captain',
       image: PlaceHolderImages.find(i => i.id === 'team-doc')?.imageUrl || '',
+      type: 'student',
       linkedin: 'https://www.linkedin.com/in/umme-salma-6b7091325/',
     },
     {
@@ -86,6 +111,7 @@ export async function getTeam(): Promise<TeamMember[]> {
       name: 'Yasmeen Taj',
       role: 'Director of Events',
       image: PlaceHolderImages.find(i => i.id === 'team-event')?.imageUrl || '',
+      type: 'student',
       linkedin: 'https://www.linkedin.com/in/yasmeen-taj0114/',
     },
     {
@@ -93,54 +119,21 @@ export async function getTeam(): Promise<TeamMember[]> {
       name: 'Member Name',
       role: 'Director of Membership & Engagement',
       image: PlaceHolderImages.find(i => i.id === 'member-gen-1')?.imageUrl || '',
+      type: 'student',
     },
     {
       id: 'm2',
       name: 'Member Name',
       role: 'Director of Data & Operations',
       image: PlaceHolderImages.find(i => i.id === 'member-gen-2')?.imageUrl || '',
+      type: 'student',
     },
     {
       id: 'm3',
       name: 'Member Name',
       role: 'Director of Technology',
       image: PlaceHolderImages.find(i => i.id === 'member-gen-3')?.imageUrl || '',
-    },
-    {
-      id: 'm4',
-      name: 'Member Name',
-      role: 'Member',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-4')?.imageUrl || '',
-    },
-    {
-      id: 'm5',
-      name: 'Member Name',
-      role: 'Member',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-5')?.imageUrl || '',
-    },
-    {
-      id: 'm6',
-      name: 'Member Name',
-      role: 'Member',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-6')?.imageUrl || '',
-    },
-    {
-      id: 'm7',
-      name: 'Member Name',
-      role: 'Member',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-7')?.imageUrl || '',
-    },
-    {
-      id: 'm8',
-      name: 'Member Name',
-      role: 'Member',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-8')?.imageUrl || '',
-    },
-    {
-      id: 'm9',
-      name: 'Member Name',
-      role: 'Member',
-      image: PlaceHolderImages.find(i => i.id === 'member-gen-9')?.imageUrl || '',
+      type: 'student',
     }
   ];
 }

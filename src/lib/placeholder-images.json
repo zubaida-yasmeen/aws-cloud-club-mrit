@@ -43,14 +43,20 @@
       "imageHint": "woman flowers"
     },
     {
+      "id": "faculty-harshitha",
+      "description": "Ms. Harshitha M - Assistant Professor, Dept of CSE",
+      "imageUrl": "https://picsum.photos/seed/faculty-harshitha/400/400",
+      "imageHint": "professor woman"
+    },
+    {
       "id": "faculty-sariya",
-      "description": "Profile of faculty coordinator Sariya Anjum",
+      "description": "Ms. Sariya Anjum - Faculty Coordinator, Dept of CSE",
       "imageUrl": "https://picsum.photos/seed/faculty-sariya/400/400",
       "imageHint": "professor woman"
     },
     {
       "id": "faculty-gowtham",
-      "description": "Profile of faculty coordinator Mr. Gowtham A R",
+      "description": "Mr. Gowtham A R - Faculty Coordinator, Dept of CSE",
       "imageUrl": "https://picsum.photos/seed/faculty-gowtham/400/400",
       "imageHint": "professor man"
     },

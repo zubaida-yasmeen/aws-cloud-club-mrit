@@ -1,26 +1,48 @@
 
 "use client";
 
+import * as React from "react";
 import { useCollection, useMemoFirebase, useFirestore } from "@/firebase";
-import { collection, query, where, orderBy } from "firebase/firestore";
+import { collection, query, orderBy } from "firebase/firestore";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TeamCard } from "@/components/Cards";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Badge } from "@/components/ui/badge";
+import { getTeam, TeamMember } from "@/lib/store";
 
 export default function TeamPage() {
   const db = useFirestore();
+  const [staticTeam, setStaticTeam] = React.useState<TeamMember[]>([]);
+
+  // Load static/default team data
+  React.useEffect(() => {
+    getTeam().then(setStaticTeam);
+  }, []);
 
   const teamQuery = useMemoFirebase(() => {
     return query(collection(db, "team"), orderBy("name", "asc"));
   }, [db]);
 
-  const { data: teamMembers, isLoading } = useCollection(teamQuery);
+  const { data: dbTeamMembers, isLoading: isDbLoading } = useCollection(teamQuery);
 
-  const studentLeads = teamMembers?.filter((m) => m.type === "student") || [];
-  const facultyAdvisors = teamMembers?.filter((m) => m.type === "faculty") || [];
+  // Combine Firestore data with static fallback data for a complete view
+  // prioritizing Firestore if data exists there.
+  const allMembers = React.useMemo(() => {
+    const combined = [...(dbTeamMembers || [])];
+    
+    // Add static members if they aren't already represented by ID in the DB
+    staticTeam.forEach(staticMember => {
+      if (!combined.find(m => m.id === staticMember.id)) {
+        combined.push(staticMember as any);
+      }
+    });
 
-  if (isLoading) {
+    return combined;
+  }, [dbTeamMembers, staticTeam]);
+
+  const studentLeads = allMembers.filter((m) => m.type === "student");
+  const facultyAdvisors = allMembers.filter((m) => m.type === "faculty");
+
+  if (isDbLoading && staticTeam.length === 0) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <SectionHeader title="Meet the Team" />
