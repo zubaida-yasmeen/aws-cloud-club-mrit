@@ -19,84 +19,68 @@ This is a modern, responsive web platform built to:
 
 ## ✨ Features
 
-* 🎯 Dynamic event display
-* 👥 Team showcase section
-* 🧠 AI-powered cloud project idea generator
-* 📱 Fully responsive UI
+* 🎯 **Dynamic Event Display:** Real-time event tracking and registration.
+* 👥 **Team Hierarchy:** Professional showcase of faculty advisors and student leadership.
+* 🧠 **AI Project Generator:** Tailored AWS project ideas powered by Google Gemini.
+* 📝 **Member Registration:** Integrated signup flow with official email notifications.
+* 📱 **Modern UI:** Fully responsive design built with Next.js and ShadCN.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** Next.js, TypeScript, Tailwind CSS
-* **Backend:** Firebase (Firestore, Hosting)
-* **Deployment:** Vercel
-* **AI Integration:** Gemini / Genkit
+* **Frontend:** Next.js 15, TypeScript, Tailwind CSS
+* **Backend:** Firebase (Firestore, Auth, Hosting)
+* **AI Integration:** Genkit with Google AI (Gemini 2.5 Flash)
 
 ---
 
-## 📂 Project Structure
-
-```
-src/
- ├── app/
- ├── components/
- ├── lib/
- ├── hooks/
-```
-
----
-
-## 🚀 Getting Started
+## 🚀 Development Workflow
 
 ### 1️⃣ Clone the repository
-
 ```bash
 git clone https://github.com/zubaida-yasmeen/aws-cloud-club-mrit.git
 cd aws-cloud-club-mrit
 ```
 
 ### 2️⃣ Install dependencies
-
 ```bash
 npm install
 ```
 
 ### 3️⃣ Run locally
-
 ```bash
 npm run dev
+```
+
+### 4️⃣ Pushing Changes to GitHub
+When you've made changes and want to update your repository:
+```bash
+# Stage all changes
+git add .
+
+# Commit your changes
+git commit -m "Description of what you changed"
+
+# Push to the main branch
+git push origin main
 ```
 
 ---
 
 ## 🌍 Deployment
 
-This project is deployed using **Vercel**.
-
-Any push to the `main` branch triggers automatic deployment.
-
----
-
-## 🎯 Purpose
-
-This project is built to:
-
-* Foster a strong cloud community at MRIT
-* Encourage hands-on learning in AWS
-* Provide a platform for collaboration and innovation
+This project is deployed using **Vercel** and **Firebase App Hosting**. 
+Any push to the `main` branch triggers an automatic deployment.
 
 ---
 
 ## 🤝 Contributing
 
 We welcome contributions from students!
-
-If you're interested:
-
 * Join the AWS Cloud Club
 * Participate in events
-* Contribute to projects
+* Contribute to the codebase
 
 ---
 
@@ -109,5 +93,3 @@ If you're interested:
 ## ⭐ Support
 
 If you like this project, give it a ⭐ on GitHub!
-
----
