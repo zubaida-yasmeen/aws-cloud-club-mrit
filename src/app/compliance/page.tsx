@@ -20,7 +20,10 @@ import {
   ShieldCheck,
   Lock,
   Database,
-  Banknote
+  Banknote,
+  Crown,
+  Workflow,
+  GanttChartSquare
 } from "lucide-react";
 import {
   Dialog,
@@ -93,6 +96,9 @@ const POLICIES = [
 const GOVERNANCE_ROLES = [
   {
     role: "Captain",
+    icon: ShieldCheck,
+    level: "Executive Leadership",
+    description: "Strategic head of the organization responsible for overall club vision and AWS ecosystem alignment.",
     responsibilities: [
       "Strategic leadership and vision for the club",
       "Primary liaison with AWS Community Managers",
@@ -102,6 +108,9 @@ const GOVERNANCE_ROLES = [
   },
   {
     role: "Treasurer",
+    icon: Banknote,
+    level: "Executive Leadership",
+    description: "Financial steward ensuring fiscal transparency and administrative compliance with college norms.",
     responsibilities: [
       "Managing club budget and financial records",
       "Ensuring transparency in all monetary transactions",
@@ -111,6 +120,9 @@ const GOVERNANCE_ROLES = [
   },
   {
     role: "Core Team (Directors)",
+    icon: Workflow,
+    level: "Departmental Leadership",
+    description: "Departmental leads executing operational goals and mentoring the general student body.",
     responsibilities: [
       "Executing departmental goals (Tech, Events, Outreach, etc.)",
       "Mentoring general body members and junior leads",
@@ -130,7 +142,7 @@ export default function CompliancePage() {
 
       <div className="space-y-24">
         {/* Official Documents Section */}
-        <section className="animate-fade-in-up">
+        <section className="animate-fade-in-up" id="documents">
           <div className="flex items-center gap-3 mb-8">
             <div className="bg-primary/10 p-2 rounded-lg">
               <FileText className="text-primary h-6 w-6" />
@@ -196,7 +208,7 @@ export default function CompliancePage() {
         </section>
 
         {/* Governance & Structure Section */}
-        <section className="animate-fade-in-up [animation-delay:200ms]">
+        <section className="animate-fade-in-up [animation-delay:200ms]" id="governance">
           <div className="flex items-center gap-3 mb-8">
             <div className="bg-secondary/10 p-2 rounded-lg">
               <Users className="text-secondary h-6 w-6" />
@@ -206,53 +218,106 @@ export default function CompliancePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             {GOVERNANCE_ROLES.map((item, idx) => (
-              <Card key={idx} className="glass-card border-white/5 hover:border-secondary/30 transition-all group">
+              <Card key={idx} className={`glass-card border-white/5 hover:border-secondary/30 transition-all group ${item.role === 'Captain' ? 'ring-1 ring-primary/20 shadow-2xl shadow-primary/5' : ''}`}>
                 <CardHeader>
-                  <div className="bg-secondary/10 w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Briefcase className="text-secondary h-5 w-5" />
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="bg-secondary/10 w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform bg-gradient-to-br from-secondary/20 to-secondary/5">
+                      <item.icon className="text-secondary h-6 w-6" />
+                    </div>
+                    <Badge variant="outline" className="text-[10px] uppercase border-white/10 text-muted-foreground">
+                      {item.level}
+                    </Badge>
                   </div>
-                  <CardTitle className="text-lg">{item.role}</CardTitle>
+                  <CardTitle className="text-xl flex items-center gap-2">
+                    {item.role}
+                    {item.role === 'Captain' && <ShieldCheck className="h-4 w-4 text-primary" />}
+                  </CardTitle>
+                  <CardDescription className="text-xs leading-relaxed mt-2">
+                    {item.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
-                    {item.responsibilities.map((resp, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <ChevronRight className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
-                        <span>{resp}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="space-y-4">
+                    <h5 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Core Accountability</h5>
+                    <ul className="space-y-3">
+                      {item.responsibilities.slice(0, 2).map((resp, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                          <ChevronRight className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
+                          <span>{resp}</span>
+                        </li>
+                      ))}
+                      <li className="text-[10px] text-primary italic pt-2">...see full handbook below</li>
+                    </ul>
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <Accordion type="single" collapsible className="glass-card rounded-2xl border-white/5 px-6">
-            <AccordionItem value="roles-responsibilities" className="border-none">
-              <AccordionTrigger className="hover:no-underline text-lg font-bold">
-                Detailed Roles & Responsibilities Handbook
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground space-y-4 pt-2 pb-6">
-                <p>
-                  Our governance model is designed to ensure stability and growth. Each role within the AWS Cloud Club MRIT is clearly defined to prevent overlaps and ensure accountability.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                    <h5 className="font-bold text-white mb-2">Decision Making</h5>
-                    <p className="text-xs">Major decisions require a majority board vote and faculty coordinator approval to ensure alignment with college policies.</p>
+          <div className="space-y-6">
+            <h4 className="text-lg font-bold flex items-center gap-2">
+              <GanttChartSquare className="h-5 w-5 text-secondary" />
+              Roles & Responsibilities Handbook
+            </h4>
+            <Accordion type="single" collapsible className="glass-card rounded-2xl border-white/5 px-6 overflow-hidden">
+              <AccordionItem value="roles-responsibilities" className="border-none">
+                <AccordionTrigger className="hover:no-underline text-lg font-bold py-6 group">
+                  <span className="group-hover:text-secondary transition-colors">Detailed Operational Framework</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground space-y-8 pt-2 pb-8">
+                  <p className="text-base leading-relaxed max-w-4xl">
+                    Our governance model is designed to ensure stability, growth, and strict adherence to MRIT campus policies. Each leadership role within the AWS Cloud Club MRIT is clearly defined to foster individual accountability and collaborative excellence.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-secondary/20 transition-all">
+                      <div className="h-10 w-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                        <Scale className="h-5 w-5 text-secondary" />
+                      </div>
+                      <h5 className="font-bold text-white mb-3">Decision Making</h5>
+                      <p className="text-sm leading-relaxed">Major decisions require a majority board vote and faculty coordinator approval to ensure alignment with college institutional policies.</p>
+                    </div>
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-secondary/20 transition-all">
+                      <div className="h-10 w-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                        <Users className="h-5 w-5 text-secondary" />
+                      </div>
+                      <h5 className="font-bold text-white mb-3">Leadership Selection</h5>
+                      <p className="text-sm leading-relaxed">Leaders are selected based on contribution, technical merit, and community engagement through an annual review process by the faculty board.</p>
+                    </div>
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-secondary/20 transition-all">
+                      <div className="h-10 w-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                        <CheckCircle className="h-5 w-5 text-secondary" />
+                      </div>
+                      <h5 className="font-bold text-white mb-3">Service Tenure</h5>
+                      <p className="text-sm leading-relaxed">Standard tenure for executive roles is one academic year, with a mandatory transition period to ensure continuity of club operations.</p>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                    <h5 className="font-bold text-white mb-2">Leadership Selection</h5>
-                    <p className="text-xs">Leaders are selected based on contribution, technical merit, and community engagement through an annual review process.</p>
+
+                  <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
+                    <h5 className="text-sm font-bold text-white mb-4 uppercase tracking-widest">Board Hierarchy & Reporting</h5>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-4 text-sm p-3 rounded-lg bg-black/20 border border-white/5">
+                        <Badge className="bg-primary/20 text-primary border-primary/30">Level 1</Badge>
+                        <span>Faculty Coordinators (Institutional Oversight)</span>
+                      </div>
+                      <div className="flex items-center gap-4 text-sm p-3 rounded-lg bg-black/20 border border-white/5 ml-4 sm:ml-8">
+                        <Badge className="bg-secondary/20 text-secondary border-secondary/30">Level 2</Badge>
+                        <span>Club Captain & Treasurer (Executive Strategy)</span>
+                      </div>
+                      <div className="flex items-center gap-4 text-sm p-3 rounded-lg bg-black/20 border border-white/5 ml-8 sm:ml-16">
+                        <Badge variant="outline" className="border-white/10">Level 3</Badge>
+                        <span>Core Team Directors (Operational Execution)</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </section>
 
         {/* Policies & Guidelines Section */}
-        <section className="animate-fade-in-up [animation-delay:400ms]">
+        <section className="animate-fade-in-up [animation-delay:400ms]" id="policies">
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-accent/10 p-2 rounded-lg">
               <Scale className="text-accent h-6 w-6" />
@@ -264,31 +329,31 @@ export default function CompliancePage() {
             <AlertCircle className="h-4 w-4 !text-amber-500" />
             <AlertTitle className="font-bold">Official Notice</AlertTitle>
             <AlertDescription>
-              Only policies issued by official club authorities and verified by faculty coordinators are valid. Any unofficial documentation circulating outside this repository is not binding.
+              Only policies issued by official club authorities and verified by faculty coordinators are valid. Any unofficial documentation circulating outside this repository is not binding and may not reflect current club standards.
             </AlertDescription>
           </Alert>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {POLICIES.map((policy, idx) => (
-              <Card key={idx} className="glass-card border-white/5 hover:bg-white/[0.07] transition-all flex flex-col">
+              <Card key={idx} className="glass-card border-white/5 hover:bg-white/[0.07] transition-all flex flex-col group">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-4">
-                    <div className="bg-primary/10 p-3 rounded-xl">
+                    <div className="bg-primary/10 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
                       <policy.icon className="h-6 w-6 text-primary" />
                     </div>
-                    <Badge variant="outline" className="text-[10px] text-muted-foreground uppercase">
+                    <Badge variant="outline" className="text-[10px] text-muted-foreground uppercase border-white/10">
                       Updated: {policy.updated}
                     </Badge>
                   </div>
-                  <CardTitle className="text-xl">{policy.title}</CardTitle>
-                  <CardDescription className="text-muted-foreground pt-2">
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{policy.title}</CardTitle>
+                  <CardDescription className="text-muted-foreground pt-2 text-sm leading-relaxed">
                     {policy.summary}
                   </CardDescription>
                 </CardHeader>
                 <CardFooter className="mt-auto border-t border-white/5 pt-6">
-                  <Button variant="ghost" className="w-full justify-between hover:bg-primary/10 hover:text-primary group">
+                  <Button variant="ghost" className="w-full justify-between hover:bg-primary/10 hover:text-primary group/btn">
                     View Policy Details
-                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </Button>
                 </CardFooter>
               </Card>
@@ -297,13 +362,13 @@ export default function CompliancePage() {
         </section>
       </div>
 
-      <div className="mt-24 p-12 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-[2.5rem] border border-white/10 text-center relative overflow-hidden group">
-        <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform duration-500">
-          <Shield className="h-40 w-40" />
+      <div className="mt-24 p-12 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent rounded-[2.5rem] border border-white/10 text-center relative overflow-hidden group">
+        <div className="absolute -top-10 -right-10 p-8 opacity-[0.03] group-hover:scale-110 transition-transform duration-700">
+          <Shield className="h-64 w-64" />
         </div>
         <h3 className="text-2xl font-bold mb-4">Integrity & Excellence</h3>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-          As an official AWS Cloud Club, we adhere to global community standards. We believe that transparency in governance fosters trust and encourages innovation within the MRIT campus community.
+        <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+          As an official AWS Cloud Club, we adhere to global community standards and campus ethical guidelines. We believe that transparency in governance fosters trust and encourages inclusive innovation within the MRIT campus community.
         </p>
       </div>
     </div>
