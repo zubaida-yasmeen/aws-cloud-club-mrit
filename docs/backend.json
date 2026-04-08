@@ -1,0 +1,210 @@
+{
+  "entities": {
+    "Event": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Event",
+      "type": "object",
+      "description": "Represents an event organized by the AWS Cloud Club, detailing its schedule and content.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Event entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the event."
+        },
+        "date": {
+          "type": "string",
+          "description": "The date and time when the event is scheduled.",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the event's agenda and goals."
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "date",
+        "description"
+      ]
+    },
+    "TeamMember": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TeamMember",
+      "type": "object",
+      "description": "Represents a member of the AWS Cloud Club's core team, detailing their role and profile.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the TeamMember entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the team member."
+        },
+        "role": {
+          "type": "string",
+          "description": "The role or position of the team member within the club (e.g., Captain, Technical Lead)."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL to the profile image of the team member.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "role",
+        "imageUrl"
+      ]
+    },
+    "Project": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Project",
+      "type": "object",
+      "description": "Represents a student project showcased by the AWS Cloud Club, including its details and tech stack.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Project entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the project."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of the project, its purpose, and outcome."
+        },
+        "techStack": {
+          "type": "array",
+          "description": "A list of technologies and AWS services used in the project.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "techStack"
+      ]
+    },
+    "Member": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Member",
+      "type": "object",
+      "description": "Represents a registered member of the AWS Cloud Club, storing their contact and interest information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Member entity."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "The full name of the club member."
+        },
+        "collegeId": {
+          "type": "string",
+          "description": "The unique identification number provided by the member's college."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the member, used for communication.",
+          "format": "email"
+        },
+        "awsInterestLevel": {
+          "type": "string",
+          "description": "The member's self-declared interest level in AWS, indicating their familiarity or desired learning pace (e.g., Beginner, Intermediate, Advanced)."
+        }
+      },
+      "required": [
+        "id",
+        "fullName",
+        "collegeId",
+        "email",
+        "awsInterestLevel"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/events/{eventId}",
+        "definition": {
+          "entityName": "Event",
+          "schema": {
+            "$ref": "#/backend/entities/Event"
+          },
+          "description": "Stores details of events organized by the AWS Cloud Club. This is a top-level collection, publicly readable and listable. Authorization is independent as no parent data is needed for access control.",
+          "params": [
+            {
+              "name": "eventId",
+              "description": "The unique identifier for an event."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/team/{teamMemberId}",
+        "definition": {
+          "entityName": "TeamMember",
+          "schema": {
+            "$ref": "#/backend/entities/TeamMember"
+          },
+          "description": "Contains profiles of core team members of the AWS Cloud Club. This is a top-level collection, publicly readable and listable. Authorization is independent as no parent data is needed for access control.",
+          "params": [
+            {
+              "name": "teamMemberId",
+              "description": "The unique identifier for a team member."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/projects/{projectId}",
+        "definition": {
+          "entityName": "Project",
+          "schema": {
+            "$ref": "#/backend/entities/Project"
+          },
+          "description": "Showcases student projects associated with the AWS Cloud Club. This is a top-level collection, publicly readable and listable. Authorization is independent as no parent data is needed for access control.",
+          "params": [
+            {
+              "name": "projectId",
+              "description": "The unique identifier for a project."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/members/{memberId}",
+        "definition": {
+          "entityName": "Member",
+          "schema": {
+            "$ref": "#/backend/entities/Member"
+          },
+          "description": "Stores registration submissions from the 'Become a Member' form. This is a top-level collection. 'Create' operations can be publicly allowed for form submission. 'Read' and 'List' operations are restricted to authorized club administrators. Authorization is independent as each member document contains all necessary data and does not rely on parent documents for access control. The 'id' field within the document should match the Firestore document ID.",
+          "params": [
+            {
+              "name": "memberId",
+              "description": "The unique identifier for a member submission."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to be secure, scalable, and debuggable by strictly adhering to the core design principles and strategy mandates. All entities (Events, TeamMembers, Projects, and Members) are implemented as top-level collections. This approach inherently supports Authorization Independence (Strategy A) because each document's access permissions can be determined without requiring `get()` calls to parent documents or other collections. All authorization context for a document resides within the document itself or is derived directly from the request context.\n\nFor the 'members' collection, which stores submissions from the 'Become a Member' form, the structure is `/members/{memberId}`. Each document (`Member` entity) within this collection will contain all necessary form data (fullName, collegeId, email, awsInterestLevel). This design allows for a clear security posture where `create` operations can be open to all users (authenticated or unauthenticated, depending on specific requirements) to allow form submission, while `read`, `list`, `update`, and `delete` operations can be restricted to authorized club administrators. This clearly segregates the collection's purpose and access levels.\n\nFor `Event`, `TeamMember`, and `Project` entities, the collections `/events/{eventId}`, `/team/{teamMemberId}`, and `/projects/{projectId}` are used respectively. These collections are designed for public display of club content. They all share a homogeneous security posture (Strategy B), where documents are publicly readable and listable. This simplifies security rules to a straightforward `allow read, list: if true;`, making them highly debuggable and robust.\n\nAll collections also satisfy Query Across Permissions (QAPs). For public collections (events, team, projects), `list` operations are intended to retrieve all documents, aligning with `allow list: if true;`. For the 'members' collection, `list` operations would be restricted (e.g., `allow list: if request.auth.uid in get(/databases/$(database)/documents/roles_admin/$(request.auth.uid)).data.adminRoles`), ensuring that only authorized administrators can list all members, preventing data leakage and strictly controlling what data can be returned by a query, rather than relying on client-side filtering."
+  }
+}
