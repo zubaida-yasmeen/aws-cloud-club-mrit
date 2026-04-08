@@ -6,7 +6,6 @@ import { useCollection, useMemoFirebase, useFirestore } from "@/firebase";
 import { collection, query, orderBy } from "firebase/firestore";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TeamCard } from "@/components/Cards";
-import { Skeleton } from "@/components/ui/skeleton";
 import { getTeam, TeamMember } from "@/lib/store";
 
 export default function TeamPage() {
@@ -40,16 +39,37 @@ export default function TeamPage() {
   const studentLeads = allMembers.filter((m) => m.type === "student");
   
   const captains = studentLeads.filter(m => 
-    m.role.toLowerCase().includes("captain")
+    m.role.toLowerCase() === "club captain" || m.role.toLowerCase() === "vice captain"
   );
-  
-  const directors = studentLeads.filter(m => 
-    m.role.toLowerCase().includes("director") && !m.role.toLowerCase().includes("assistant")
-  );
-  
-  const assistants = studentLeads.filter(m => 
-    m.role.toLowerCase().includes("assistant")
-  );
+
+  // Department definitions for the 5-column grid
+  const departments = [
+    { 
+      name: "Events", 
+      directorRole: "Director of Events", 
+      assistantRoles: ["Assistant Director of Events"] 
+    },
+    { 
+      name: "Marketing", 
+      directorRole: "Director of Marketing & Outreach", 
+      assistantRoles: ["Assistant Director of Marketing & Outreach"] 
+    },
+    { 
+      name: "Membership", 
+      directorRole: "Director of Membership & Engagement", 
+      assistantRoles: ["Assistant Director of Membership & Engagement"] 
+    },
+    { 
+      name: "Technology", 
+      directorRole: "Director of Technology", 
+      assistantRoles: ["Assistant Director of Technology"] 
+    },
+    { 
+      name: "Data & Ops", 
+      directorRole: "Director of Data & Operations", 
+      assistantRoles: ["Assistant Director of Data & Operations"] 
+    }
+  ];
 
   if (isDbLoading && staticTeam.length === 0) {
     return (
@@ -86,44 +106,61 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Student Leads Section - Hierarchical */}
-      <section className="space-y-20">
+      {/* Student Leadership Hierarchy */}
+      <section className="space-y-16">
         <div>
           <SectionHeader 
-            title="Student Leads" 
-            subtitle="The core leadership driving innovation and cloud learning across the campus."
+            title="Student Leadership" 
+            subtitle="The executive team and departmental leads driving innovation across the campus."
           />
           
-          {/* Row 1: Captains */}
-          <div className="flex flex-wrap justify-center gap-8 mb-16">
+          {/* Tier 1: Captains */}
+          <div className="flex flex-wrap justify-center gap-8 mb-20">
             {captains.map((member) => (
-              <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(30%-1.5rem)] min-w-[280px]">
+              <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(30%-1.5rem)] min-w-[300px]">
                 <TeamCard member={member} />
               </div>
             ))}
           </div>
 
-          {/* Row 2: Board of Directors (5 members row) */}
-          <div className="space-y-8">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-primary text-center">Board of Directors</h3>
-            <div className="flex flex-wrap justify-center gap-8">
-              {directors.map((member) => (
-                <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(20%-1.5rem)] min-w-[240px]">
-                  <TeamCard member={member} />
-                </div>
-              ))}
+          {/* Tier 2 & 3: Directors and their Assistants Grid */}
+          <div className="space-y-12">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-primary text-center mb-8">Departmental Hierarchy</h3>
+            
+            {/* Directors Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
+              {departments.map((dept, idx) => {
+                const director = studentLeads.find(m => m.role === dept.directorRole);
+                return (
+                  <div key={`dir-${idx}`} className="flex flex-col h-full">
+                    {director ? (
+                      <TeamCard member={director} />
+                    ) : (
+                      <div className="glass-card h-full rounded-2xl border-dashed border-white/5 min-h-[250px] flex items-center justify-center">
+                        <span className="text-[10px] text-muted-foreground uppercase">Role Vacant</span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-          </div>
 
-          {/* Row 3: Assistant Directors */}
-          <div className="space-y-8 mt-16">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-secondary text-center">Assistant Directors</h3>
-            <div className="flex flex-wrap justify-center gap-8">
-              {assistants.map((member) => (
-                <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[240px]">
-                  <TeamCard member={member} />
-                </div>
-              ))}
+            {/* Assistants Row (Aligned under Directors) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {departments.map((dept, idx) => {
+                const assistants = studentLeads.filter(m => dept.assistantRoles.includes(m.role));
+                return (
+                  <div key={`ast-${idx}`} className="flex flex-col gap-4">
+                    {assistants.length > 0 ? (
+                      assistants.map(ast => <TeamCard key={ast.id} member={ast} />)
+                    ) : (
+                      <div className="glass-card h-[150px] rounded-2xl border-dashed border-white/5 flex items-center justify-center">
+                        <span className="text-[10px] text-muted-foreground uppercase opacity-30">No Assistant</span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
