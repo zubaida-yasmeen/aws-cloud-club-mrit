@@ -61,6 +61,18 @@
       "imageHint": "professional woman"
     },
     {
+      "id": "team-divya",
+      "description": "Profile of Divya Darshini.S",
+      "imageUrl": "https://picsum.photos/seed/female-divya/400/400",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "team-sonika",
+      "description": "Profile of Sonika K B",
+      "imageUrl": "https://picsum.photos/seed/female-sonika/400/400",
+      "imageHint": "student woman"
+    },
+    {
       "id": "faculty-harshitha",
       "description": "Ms. Harshitha M - Assistant Professor, Dept of CSE",
       "imageUrl": "https://picsum.photos/seed/faculty-harshitha/400/400",

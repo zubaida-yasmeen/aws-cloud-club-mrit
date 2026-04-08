@@ -130,14 +130,6 @@ export async function getTeam(): Promise<TeamMember[]> {
       linkedin: 'https://www.linkedin.com/in/deepika-l-bennur-9b8b3132b',
     },
     {
-      id: 'm2',
-      name: 'Arnav Nishant',
-      role: 'Assistant Director of Membership & Engagement',
-      image: PlaceHolderImages.find(i => i.id === 'team-arnav')?.imageUrl || '',
-      type: 'student',
-      linkedin: 'https://www.linkedin.com/in/arnav-nishanth-6aa7b5376',
-    },
-    {
       id: 't1',
       name: 'Ahmed Faraaz',
       role: 'Director of Technology',
@@ -146,11 +138,35 @@ export async function getTeam(): Promise<TeamMember[]> {
       linkedin: 'https://www.linkedin.com/in/ahmed-faraaz-b69247343',
     },
     {
+      id: 'd1',
+      name: 'Divya Darshini.S',
+      role: 'Director of Data & Operations',
+      image: PlaceHolderImages.find(i => i.id === 'team-divya')?.imageUrl || '',
+      type: 'student',
+      linkedin: 'https://www.linkedin.com/in/divya-darshini-s-02462039a',
+    },
+    {
+      id: 'm2',
+      name: 'Arnav Nishant',
+      role: 'Assistant Director of Membership & Engagement',
+      image: PlaceHolderImages.find(i => i.id === 'team-arnav')?.imageUrl || '',
+      type: 'student',
+      linkedin: 'https://www.linkedin.com/in/arnav-nishanth-6aa7b5376',
+    },
+    {
       id: 't2',
       name: 'Aqsaa Sheik',
       role: 'Assistant Director of Technology',
       image: PlaceHolderImages.find(i => i.id === 'team-aqsaa')?.imageUrl || '',
       type: 'student',
+    },
+    {
+      id: 's1',
+      name: 'Sonika K B',
+      role: 'Assistant Director of Technology',
+      image: PlaceHolderImages.find(i => i.id === 'team-sonika')?.imageUrl || '',
+      type: 'student',
+      linkedin: 'https://www.linkedin.com/in/sonika-k-b-9a060130a?utm_source=share_via&utm_content=profile&utm_medium=member_android',
     }
   ];
 }

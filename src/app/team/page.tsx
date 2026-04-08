@@ -35,9 +35,8 @@ export default function TeamPage() {
     return combined;
   }, [dbTeamMembers, staticTeam]);
 
-  // Hierarchical Filtering for Student Leads
+  // Hierarchical Filtering
   const facultyAdvisors = allMembers.filter((m) => m.type === "faculty");
-  
   const studentLeads = allMembers.filter((m) => m.type === "student");
   
   const captains = studentLeads.filter(m => 
@@ -98,18 +97,20 @@ export default function TeamPage() {
           {/* Row 1: Captains */}
           <div className="flex flex-wrap justify-center gap-8 mb-16">
             {captains.map((member) => (
-              <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[280px]">
+              <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(30%-1.5rem)] min-w-[280px]">
                 <TeamCard member={member} />
               </div>
             ))}
           </div>
 
-          {/* Row 2: Directors */}
+          {/* Row 2: Board of Directors (5 members row) */}
           <div className="space-y-8">
             <h3 className="text-sm font-bold uppercase tracking-widest text-primary text-center">Board of Directors</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
               {directors.map((member) => (
-                <TeamCard key={member.id} member={member} />
+                <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(20%-1.5rem)] min-w-[240px]">
+                  <TeamCard member={member} />
+                </div>
               ))}
             </div>
           </div>
@@ -119,7 +120,7 @@ export default function TeamPage() {
             <h3 className="text-sm font-bold uppercase tracking-widest text-secondary text-center">Assistant Directors</h3>
             <div className="flex flex-wrap justify-center gap-8">
               {assistants.map((member) => (
-                <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[280px]">
+                <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[240px]">
                   <TeamCard member={member} />
                 </div>
               ))}
