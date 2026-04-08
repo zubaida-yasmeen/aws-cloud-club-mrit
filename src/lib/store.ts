@@ -31,7 +31,7 @@ export async function getEvents(): Promise<Event[]> {
       id: '1',
       title: 'Introduction to AWS Cloud Club MRIT',
       date: 'Sun, Mar 29, 2026, 8:00 PM',
-      description: 'Introduction to AWS Cloud Club at Mysuru Royal Institute of Technology. Join us to learn about our community, goals, and how you can be a part of the cloud revolution.',
+      description: 'The introductory session for AWS Cloud Club at MRIT has been successfully conducted. We shared our vision, goals, and the exciting roadmap for cloud enthusiasts on campus.',
       image: PlaceHolderImages.find(i => i.id === 'event-inauguration')?.imageUrl || '',
       link: 'https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/events/313998864/',
     },
