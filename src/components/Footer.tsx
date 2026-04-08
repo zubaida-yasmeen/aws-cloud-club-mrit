@@ -1,9 +1,17 @@
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
 import { Linkedin, Mail, Users } from "lucide-react";
 
 export function Footer() {
+  const [mounted, setMounted] = React.useState(false);
   const linkedinUrl = "https://www.linkedin.com/company/aws-cloud-club-mrit/";
   const meetupUrl = "https://www.meetup.com/aws-cloud-club-at-mysuru-royal-inst-of-tech/";
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <footer className="border-t border-white/10 bg-background pt-12 pb-8">
@@ -65,7 +73,9 @@ export function Footer() {
           <p className="text-[10px] text-muted-foreground/60 mb-4 italic">
             Unverified forms or payments are not the responsibility of the club.
           </p>
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} AWS Cloud Club – MRIT.</p>
+          <p className="text-xs text-muted-foreground">
+            © {mounted ? new Date().getFullYear() : "2025"} AWS Cloud Club – MRIT.
+          </p>
         </div>
       </div>
     </footer>
