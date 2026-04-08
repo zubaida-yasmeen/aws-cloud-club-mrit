@@ -12,10 +12,10 @@ import {
   Eye,
   Linkedin,
   ChevronRight,
-  CircleAlert
+  CircleAlert,
+  AlertTriangle
 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const DOCUMENTS = [
   { title: "Club Proposal Letter", desc: "Official submission to MRIT admin.", date: "Feb 2024" },
@@ -76,6 +76,29 @@ const CONDUCT_POLICY = [
     title: "5. Fraudulent Activities",
     points: [
       "Misuse of club name/logo or creation of fake forms is strictly prohibited."
+    ]
+  },
+  {
+    title: "6. Content Authorization",
+    points: [
+      "All posters, announcements, and communications must be verified before release.",
+      "Unauthorized content circulation is strictly punishable."
+    ]
+  },
+  {
+    title: "7. Legal Enforcement",
+    points: [
+      "Violations lead to institutional disciplinary action.",
+      "Permanent removal from club activities.",
+      "Potential legal action under applicable laws."
+    ]
+  },
+  {
+    title: "8. Member Responsibility",
+    points: [
+      "Verify before acting.",
+      "Report suspicious activities immediately.",
+      "Protect the integrity of the club at all times."
     ]
   }
 ];
@@ -157,21 +180,35 @@ export default function CompliancePage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="p-6 space-y-6">
-            {CONDUCT_POLICY.map((section, idx) => (
-              <div key={idx} className="space-y-2">
-                <h4 className="text-sm font-bold text-primary flex items-center gap-2">
-                  {section.title}
-                </h4>
-                <ul className="space-y-1.5 pl-2">
-                  {section.points.map((point, pIdx) => (
-                    <li key={pIdx} className="text-xs text-muted-foreground flex items-start gap-2">
-                      <ChevronRight className="h-3 w-3 mt-0.5 text-primary/50 shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              {CONDUCT_POLICY.map((section, idx) => (
+                <div key={idx} className="space-y-2">
+                  <h4 className="text-sm font-bold text-primary flex items-center gap-2">
+                    {section.title}
+                  </h4>
+                  <ul className="space-y-1.5 pl-2">
+                    {section.points.map((point, pIdx) => (
+                      <li key={pIdx} className="text-xs text-muted-foreground flex items-start gap-2">
+                        <ChevronRight className="h-3 w-3 mt-0.5 text-primary/50 shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-white/5">
+              <div className="bg-destructive/10 border border-destructive/20 p-4 rounded-lg flex gap-4">
+                <AlertTriangle className="h-5 w-5 text-destructive shrink-0" />
+                <div className="space-y-1">
+                  <h5 className="text-sm font-bold text-destructive uppercase tracking-tight">Final Notice</h5>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Any activity, communication, or transaction not officially verified shall be considered fraudulent, and involved individuals will be held legally accountable without exception.
+                  </p>
+                </div>
               </div>
-            ))}
+            </div>
           </CardContent>
           <CardFooter className="p-4 bg-primary/5 flex justify-center border-t border-white/5">
             <div className="flex items-center gap-2 text-[10px] text-muted-foreground italic">
