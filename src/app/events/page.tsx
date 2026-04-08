@@ -3,6 +3,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { EventCard } from "@/components/Cards";
 import { getEvents } from "@/lib/store";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Mail } from "lucide-react";
 
 async function EventsList() {
   const events = await getEvents();
@@ -48,8 +49,9 @@ export default function EventsPage() {
       <div className="mt-20 p-10 bg-secondary/10 rounded-3xl border border-secondary/20 text-center">
         <h3 className="text-2xl font-bold mb-4">Have an idea for an event?</h3>
         <p className="text-muted-foreground mb-6">We're always looking for new topics and speakers. Reach out to us!</p>
-        <a href="mailto:awscloudclub@mysururoyal.org" className="text-primary font-medium hover:underline">
-          Contact the Event Lead
+        <a href="mailto:awscloudclub@mysururoyal.org" className="text-primary font-medium hover:underline flex items-center justify-center gap-2">
+          <Mail className="h-5 w-5" />
+          awscloudclub@mysururoyal.org
         </a>
       </div>
     </div>

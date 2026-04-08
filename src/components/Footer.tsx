@@ -51,8 +51,8 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:awscloudclub@mysururoyal.org" className="hover:text-primary transition-colors">
+                <a href="mailto:awscloudclub@mysururoyal.org" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-primary" />
                   awscloudclub@mysururoyal.org
                 </a>
               </li>
