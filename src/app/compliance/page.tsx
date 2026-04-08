@@ -25,10 +25,7 @@ const DOCUMENTS = [
 ];
 
 const POLICIES = [
-  { title: "Code of Conduct", desc: "Professional behavioral expectations for members." },
-  { title: "Security Policy", desc: "Guidelines for secure communication and data." },
-  { title: "Privacy Policy", desc: "Member data protection and handling norms." },
-  { title: "Finance Policy", desc: "Transparency rules for club fund management." }
+  { title: "Code of Conduct", desc: "Professional behavioral expectations for members." }
 ];
 
 const CORE_LEADERSHIP = [
