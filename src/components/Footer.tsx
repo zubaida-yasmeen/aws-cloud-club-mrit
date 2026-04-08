@@ -13,7 +13,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <span className="text-lg font-bold">AWS <span className="text-primary">Cloud Club</span> – MRIT</span>
             </Link>
-            <p className="text-muted-foreground max-w-sm mb-6">
+            <p className="text-muted-foreground max-w-sm mb-6 text-sm leading-relaxed">
               Empowering students at Mysuru Royal Institute of Technology to build the next generation of cloud solutions.
             </p>
             <div className="flex space-x-4">
@@ -39,34 +39,34 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-muted-foreground">
+            <h3 className="font-semibold text-sm mb-4 uppercase tracking-wider">Quick Links</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/events" className="hover:text-primary transition-colors">Events</Link></li>
               <li><Link href="/team" className="hover:text-primary transition-colors">Our Team</Link></li>
-              <li><Link href="/compliance" className="hover:text-primary transition-colors">Compliance &amp; Transparency</Link></li>
+              <li><Link href="/compliance" className="hover:text-primary transition-colors">Compliance</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-muted-foreground">
+            <h3 className="font-semibold text-sm mb-4 uppercase tracking-wider">Contact</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <a href="mailto:awscloudclub@mysururoyal.org" className="hover:text-primary transition-colors flex items-center gap-2">
                   <Mail className="h-4 w-4 text-primary" />
                   awscloudclub@mysururoyal.org
                 </a>
               </li>
-              <li className="text-sm">Mysuru Royal Institute of Technology, Mandya, Karnataka</li>
+              <li className="text-xs">Mysuru Royal Institute of Technology, Mandya, Karnataka</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/5 text-center">
-          <p className="text-[10px] sm:text-xs text-muted-foreground/60 max-w-3xl mx-auto mb-4 leading-relaxed italic">
-            Disclaimer: AWS Cloud Club MRIT is not responsible for unauthorized forms, links, or financial transactions not verified by official communication channels. Always verify information through the Captain or Treasurer.
+          <p className="text-[10px] text-muted-foreground/60 mb-4 italic">
+            Unverified forms or payments are not the responsibility of the club.
           </p>
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} AWS Cloud Club – MRIT. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} AWS Cloud Club – MRIT.</p>
         </div>
       </div>
     </footer>
