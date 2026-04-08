@@ -24,23 +24,33 @@ export default function TeamPage() {
 
   const { data: dbTeamMembers, isLoading: isDbLoading } = useCollection(teamQuery);
 
-  // Combine Firestore data with static fallback data for a complete view
-  // prioritizing Firestore if data exists there.
+  // Combine Firestore data with static fallback data
   const allMembers = React.useMemo(() => {
     const combined = [...(dbTeamMembers || [])];
-    
-    // Add static members if they aren't already represented by ID in the DB
     staticTeam.forEach(staticMember => {
       if (!combined.find(m => m.id === staticMember.id)) {
         combined.push(staticMember as any);
       }
     });
-
     return combined;
   }, [dbTeamMembers, staticTeam]);
 
-  const studentLeads = allMembers.filter((m) => m.type === "student");
+  // Hierarchical Filtering for Student Leads
   const facultyAdvisors = allMembers.filter((m) => m.type === "faculty");
+  
+  const studentLeads = allMembers.filter((m) => m.type === "student");
+  
+  const captains = studentLeads.filter(m => 
+    m.role.toLowerCase().includes("captain")
+  );
+  
+  const directors = studentLeads.filter(m => 
+    m.role.toLowerCase().includes("director") && !m.role.toLowerCase().includes("assistant")
+  );
+  
+  const assistants = studentLeads.filter(m => 
+    m.role.toLowerCase().includes("assistant")
+  );
 
   if (isDbLoading && staticTeam.length === 0) {
     return (
@@ -64,37 +74,57 @@ export default function TeamPage() {
           subtitle="Our mentors who provide guidance and strategic direction to the AWS Cloud Club MRIT community."
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {facultyAdvisors.length > 0 ? (
-            facultyAdvisors.map((member) => (
-              <div 
-                key={member.id} 
-                className="relative p-0.5 rounded-2xl bg-gradient-to-br from-amber-400 via-primary to-secondary shadow-2xl transition-transform hover:scale-[1.02]"
-              >
-                <div className="bg-background/95 rounded-2xl overflow-hidden h-full">
-                  <TeamCard member={member} />
-                </div>
+          {facultyAdvisors.map((member) => (
+            <div 
+              key={member.id} 
+              className="relative p-0.5 rounded-2xl bg-gradient-to-br from-amber-400 via-primary to-secondary shadow-2xl transition-transform hover:scale-[1.02]"
+            >
+              <div className="bg-background/95 rounded-2xl overflow-hidden h-full">
+                <TeamCard member={member} />
               </div>
-            ))
-          ) : (
-            <p className="text-muted-foreground italic col-span-full">No faculty advisors listed.</p>
-          )}
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Student Leads Section */}
-      <section>
-        <SectionHeader 
-          title="Student Leads" 
-          subtitle="The energetic student team driving innovation and cloud learning across the campus."
-        />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {studentLeads.length > 0 ? (
-            studentLeads.map((member) => (
-              <TeamCard key={member.id} member={member} />
-            ))
-          ) : (
-            <p className="text-muted-foreground italic col-span-full">No student leads listed.</p>
-          )}
+      {/* Student Leads Section - Hierarchical */}
+      <section className="space-y-20">
+        <div>
+          <SectionHeader 
+            title="Student Leads" 
+            subtitle="The core leadership driving innovation and cloud learning across the campus."
+          />
+          
+          {/* Row 1: Captains */}
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
+            {captains.map((member) => (
+              <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[280px]">
+                <TeamCard member={member} />
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2: Directors */}
+          <div className="space-y-8">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-primary text-center">Board of Directors</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {directors.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+
+          {/* Row 3: Assistant Directors */}
+          <div className="space-y-8 mt-16">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-secondary text-center">Assistant Directors</h3>
+            <div className="flex flex-wrap justify-center gap-8">
+              {assistants.map((member) => (
+                <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[280px]">
+                  <TeamCard member={member} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>
