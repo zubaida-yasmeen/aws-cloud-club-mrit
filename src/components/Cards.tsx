@@ -1,19 +1,40 @@
 import Image from "next/image";
-import { Calendar, Tag, Linkedin, ExternalLink, Clock, CheckCircle } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Calendar, Tag, Linkedin, ExternalLink, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Event, TeamMember, Project } from "@/lib/store";
 import { format, isPast, differenceInHours, parseISO } from "date-fns";
 import { cn } from "@/lib/utils";
 
-export function EventCard({ event }: { event: Event }) {
-  const eventDate = parseISO(event.date);
+/**
+ * Logic utility to determine event status based on date.
+ * @param dateIso String in ISO format
+ * @returns Object containing status booleans
+ */
+export function getEventStatus(dateIso: string) {
+  const eventDate = parseISO(dateIso);
+  const now = new Date();
+  
   const isEventPast = isPast(eventDate);
-  const hoursUntilEvent = differenceInHours(eventDate, new Date());
+  const hoursUntilEvent = differenceInHours(eventDate, now);
   const isHappeningSoon = !isEventPast && hoursUntilEvent >= 0 && hoursUntilEvent <= 48;
+  
+  return {
+    isEventPast,
+    isHappeningSoon,
+    eventDate
+  };
+}
 
-  const CardContentComponent = (
-    <>
+export function EventCard({ event }: { event: Event }) {
+  const { isEventPast, isHappeningSoon, eventDate } = getEventStatus(event.date);
+
+  return (
+    <Card className={cn(
+      "glass-card group overflow-hidden transition-all duration-300 flex flex-col h-full border-primary/10 hover:border-primary/40",
+      isEventPast ? "opacity-75 grayscale-[20%]" : "hover:-translate-y-2"
+    )}>
       <div className="relative h-48 w-full overflow-hidden">
         <Image
           src={event.image}
@@ -29,7 +50,7 @@ export function EventCard({ event }: { event: Event }) {
         {/* Status Badges */}
         <div className="absolute top-4 left-4 flex flex-col gap-2">
           {isEventPast && (
-            <Badge variant="secondary" className="bg-gray-500/80 text-white border-none backdrop-blur-md">
+            <Badge variant="secondary" className="bg-zinc-800/90 text-zinc-300 border-zinc-700 backdrop-blur-md">
               <CheckCircle className="h-3 w-3 mr-1" />
               Completed
             </Badge>
@@ -41,46 +62,42 @@ export function EventCard({ event }: { event: Event }) {
             </Badge>
           )}
         </div>
-
-        {event.link && (
-          <div className="absolute top-4 right-4 bg-primary/90 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
-            <ExternalLink className="h-4 w-4" />
-          </div>
-        )}
       </div>
-      <CardHeader>
+
+      <CardHeader className="pb-2">
         <div className="flex items-center gap-2 text-xs text-primary mb-2 font-semibold">
           <Calendar className="h-3 w-3" />
           {format(eventDate, "EEE, MMM d, yyyy, h:mm a")}
         </div>
-        <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2">{event.title}</CardTitle>
+        <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2">
+          {event.title}
+        </CardTitle>
       </CardHeader>
-      <CardContent>
+
+      <CardContent className="flex-grow">
         <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
           {event.description}
         </p>
       </CardContent>
-    </>
-  );
 
-  const cardClassName = cn(
-    "glass-card group overflow-hidden transition-all duration-300 h-full border-primary/10 hover:border-primary/40",
-    isEventPast ? "event-past" : "hover:-translate-y-2"
-  );
-
-  if (event.link) {
-    return (
-      <a href={event.link} target="_blank" rel="noopener noreferrer" className="block h-full">
-        <Card className={cardClassName}>
-          {CardContentComponent}
-        </Card>
-      </a>
-    );
-  }
-
-  return (
-    <Card className={cardClassName}>
-      {CardContentComponent}
+      <CardFooter className="pt-0">
+        {!isEventPast && event.link ? (
+          <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
+            <a href={event.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+              Register Now
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
+        ) : !isEventPast ? (
+          <Button disabled className="w-full bg-zinc-800 text-zinc-500 cursor-not-allowed">
+            Registration Opening Soon
+          </Button>
+        ) : (
+          <Button variant="outline" className="w-full border-zinc-700 text-zinc-400 hover:bg-zinc-900" disabled>
+            Event Concluded
+          </Button>
+        )}
+      </CardFooter>
     </Card>
   );
 }
