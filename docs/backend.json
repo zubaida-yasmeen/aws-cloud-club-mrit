@@ -189,13 +189,13 @@
         }
       },
       {
-        "path": "/registrations/{registrationId}",
+        "path": "/club_members/{memberId}",
         "definition": {
           "entityName": "Registration",
           "schema": {
             "$ref": "#/backend/entities/Registration"
           },
-          "description": "Stores new student registrations. Publicly writable, admin readable."
+          "description": "Stores new student registrations for the club membership."
         }
       }
     ]

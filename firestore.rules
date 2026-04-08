@@ -29,16 +29,16 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    match /registrations/{registrationId} {
-      // Allow anyone to create a registration
+    match /club_members/{memberId} {
+      // Allow anyone to register
       allow create: if true;
-      // Only admins can view or manage registrations
+      // Only admins can view or manage member data
       allow get, list, update, delete: if isAdmin();
     }
     
-    // Legacy support for members collection if still used
-    match /members/{memberId} {
-      allow create: if request.resource.data.id == memberId;
+    // Legacy support for other collections if necessary
+    match /registrations/{registrationId} {
+      allow create: if true;
       allow get, list, update, delete: if isAdmin();
     }
   }
