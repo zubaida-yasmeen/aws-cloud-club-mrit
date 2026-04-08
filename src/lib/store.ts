@@ -19,6 +19,10 @@ export interface TeamMember {
   linkedin?: string;
 }
 
+export interface UserTeamMember extends TeamMember {
+  imageUrl?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -163,7 +167,7 @@ export async function getTeam(): Promise<TeamMember[]> {
     {
       id: 's1',
       name: 'Sonika K B',
-      role: 'Assistant Director of Technology',
+      role: 'Assistant Director of Data & Operations',
       image: PlaceHolderImages.find(i => i.id === 'team-sonika')?.imageUrl || '',
       type: 'student',
       linkedin: 'https://www.linkedin.com/in/sonika-k-b-9a060130a?utm_source=share_via&utm_content=profile&utm_medium=member_android',
