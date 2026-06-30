@@ -53,21 +53,6 @@ npm install
 npm run dev
 ```
 
-### 4️⃣ Pushing Changes to GitHub
-When you've made changes and want to update your repository:
-```bash
-# Stage all changes
-git add .
-
-# Commit your changes
-git commit -m "Description of what you changed"
-
-# Push to the main branch
-git push origin main
-```
-
----
-
 ## 🌍 Deployment
 
 This project is deployed using **Vercel** and **Firebase App Hosting**. 
